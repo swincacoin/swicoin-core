@@ -1,9 +1,10 @@
 // Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_QT_MULTISENDDIALOG_H
-#define PIVX_QT_MULTISENDDIALOG_H
+#ifndef SWI_QT_MULTISENDDIALOG_H
+#define SWI_QT_MULTISENDDIALOG_H
 
 #include <QDialog>
 
@@ -38,4 +39,4 @@ private:
     WalletModel* model;
 };
 
-#endif // PIVX_QT_MULTISENDDIALOG_H
+#endif // SWI_QT_MULTISENDDIALOG_H

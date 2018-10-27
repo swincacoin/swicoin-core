@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2822,7 +2823,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-pivx-address
+                    // change transaction isn't always pay-to-swi-address
                     CScript scriptChange;
                     bool combineChange = false;
 
@@ -4566,7 +4567,7 @@ bool CWallet::CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransa
             reservekey->ReturnKey();
     }
 
-    // Sign if these are pivx outputs - NOTE that zPIV outputs are signed later in SoK
+    // Sign if these are swi outputs - NOTE that zPIV outputs are signed later in SoK
     if (!isZCSpendChange) {
         int nIn = 0;
         for (const std::pair<const CWalletTx*, unsigned int>& coin : setCoins) {
@@ -4655,7 +4656,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         serializedCoinSpend << spend;
         std::vector<unsigned char> data(serializedCoinSpend.begin(), serializedCoinSpend.end());
 
-        //Add the coin spend into a PIVX transaction
+        //Add the coin spend into a SWI transaction
         newTxIn.scriptSig = CScript() << OP_ZEROCOINSPEND << data.size();
         newTxIn.scriptSig.insert(newTxIn.scriptSig.end(), data.begin(), data.end());
         newTxIn.prevout.SetNull();
@@ -4887,7 +4888,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
                 }
             }
 
-            //add output to pivx address to the transaction (the actual primary spend taking place)
+            //add output to swi address to the transaction (the actual primary spend taking place)
             CTxOut txOutZerocoinSpend(nValue, scriptZerocoinSpend);
             txNew.vout.push_back(txOutZerocoinSpend);
 

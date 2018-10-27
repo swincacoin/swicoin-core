@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +22,7 @@
 
 /** 
 
-    ****Note - for PIVX we added fCoinStake to the 2nd bit. Keep in mind when reading the following and adjust as needed.
+    ****Note - for SWI we added fCoinStake to the 2nd bit. Keep in mind when reading the following and adjust as needed.
  * Pruned version of CTransaction: only retains metadata and unspent transaction outputs
  *
  * Serialized format:
@@ -458,7 +459,7 @@ public:
     unsigned int GetCacheSize() const;
 
     /** 
-     * Amount of pivx coming in to a transaction
+     * Amount of swi coming in to a transaction
      * Note that lightweight clients may not know anything besides the hash of previous transactions,
      * so may not be able to calculate this.
      *

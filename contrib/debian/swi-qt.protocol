@@ -1,0 +1,11 @@
+[Protocol]
+exec=swi-qt '%u'
+protocol=swi
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

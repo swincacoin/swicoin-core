@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SWI
+Comment=SWI P2P Cryptocurrency
+Comment[fr]=SWI, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SWI, eşten eşe kriptografik sanal para birimi
+Exec=swi-qt %u
+Terminal=false
+Type=Application
+Icon=swi128
+MimeType=x-scheme-handler/swi;
+Categories=Office;Finance;

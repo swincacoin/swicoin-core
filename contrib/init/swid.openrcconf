@@ -1,0 +1,26 @@
+# /etc/conf.d/swid: config file for /etc/init.d/swid
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/swi/swi.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/swid"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/swid.pid"
+
+# Where to write swid data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/swid"
+
+# User and group to own swid process
+#BITCOIND_USER="swi"
+#BITCOIND_GROUP="swi"
+
+# Path to swid executable
+#BITCOIND_BIN="/usr/bin/swid"
+
+# Nice value to run swid under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

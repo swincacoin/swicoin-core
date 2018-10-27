@@ -1,9 +1,10 @@
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_ACCUMULATORS_H
-#define PIVX_ACCUMULATORS_H
+#ifndef SWI_ACCUMULATORS_H
+#define SWI_ACCUMULATORS_H
 
 #include "libzerocoin/Accumulator.h"
 #include "libzerocoin/Coin.h"
@@ -30,4 +31,4 @@ int GetChecksumHeight(uint32_t nChecksum, libzerocoin::CoinDenomination denomina
 bool InvalidCheckpointRange(int nHeight);
 bool ValidateAccumulatorCheckpoint(const CBlock& block, CBlockIndex* pindex, AccumulatorMap& mapAccumulators);
 
-#endif //PIVX_ACCUMULATORS_H
+#endif //SWI_ACCUMULATORS_H

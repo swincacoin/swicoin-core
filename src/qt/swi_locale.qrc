@@ -1,0 +1,36 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/swi_bg.qm</file>
+        <file alias="ca">locale/swi_ca.qm</file>
+        <file alias="cs">locale/swi_cs.qm</file>
+        <file alias="da">locale/swi_da.qm</file>
+        <file alias="de">locale/swi_de.qm</file>
+        <file alias="en">locale/swi_en.qm</file>
+        <file alias="en_US">locale/swi_en_US.qm</file>
+        <file alias="eo">locale/swi_eo.qm</file>
+        <file alias="es">locale/swi_es.qm</file>
+        <file alias="es_ES">locale/swi_es_ES.qm</file>
+        <file alias="fi">locale/swi_fi.qm</file>
+        <file alias="fr_FR">locale/swi_fr_FR.qm</file>
+        <file alias="hi_IN">locale/swi_hi_IN.qm</file>
+        <file alias="hr">locale/swi_hr.qm</file>
+        <file alias="hr_HR">locale/swi_hr_HR.qm</file>
+        <file alias="it">locale/swi_it.qm</file>
+        <file alias="ja">locale/swi_ja.qm</file>
+        <file alias="ko_KR">locale/swi_ko_KR.qm</file>
+        <file alias="lt_LT">locale/swi_lt_LT.qm</file>
+        <file alias="nl">locale/swi_nl.qm</file>
+        <file alias="pl">locale/swi_pl.qm</file>
+        <file alias="pt">locale/swi_pt.qm</file>
+        <file alias="pt_BR">locale/swi_pt_BR.qm</file>
+        <file alias="ro_RO">locale/swi_ro_RO.qm</file>
+        <file alias="ru">locale/swi_ru.qm</file>
+        <file alias="sk">locale/swi_sk.qm</file>
+        <file alias="sv">locale/swi_sv.qm</file>
+        <file alias="tr">locale/swi_tr.qm</file>
+        <file alias="uk">locale/swi_uk.qm</file>
+        <file alias="vi">locale/swi_vi.qm</file>
+        <file alias="zh_CN">locale/swi_zh_CN.qm</file>
+        <file alias="zh_TW">locale/swi_zh_TW.qm</file>
+    </qresource>
+</RCC>

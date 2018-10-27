@@ -1,0 +1,26 @@
+[Unit]
+Description=SWI's distributed currency daemon
+After=network.target
+
+[Service]
+User=swi
+Group=swi
+
+Type=forking
+PIDFile=/var/lib/swid/swid.pid
+
+ExecStart=/usr/bin/swid -daemon -pid=/var/lib/swid/swid.pid \
+          -conf=/etc/swi/swi.conf -datadir=/var/lib/swid
+
+ExecStop=-/usr/bin/swi-cli -conf=/etc/swi/swi.conf \
+         -datadir=/var/lib/swid stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

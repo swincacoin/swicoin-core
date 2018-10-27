@@ -1,10 +1,11 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/swi-config.h"
 #endif
 
 #include "optionsdialog.h"

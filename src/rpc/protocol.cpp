@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2018 The SWI developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,7 +21,7 @@
 using namespace std;
 
 /**
- * JSON-RPC protocol.  PIVX speaks version 1.0 for maximum compatibility,
+ * JSON-RPC protocol.  SWI speaks version 1.0 for maximum compatibility,
  * but uses JSON-RPC 1.1/2.0 standards for parts of the 1.0 standard that were
  * unspecified (HTTP errors and contents of 'error').
  *

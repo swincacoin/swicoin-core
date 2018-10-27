@@ -881,12 +881,12 @@ QDialog#HelpMessageDialog QScrollBar:vertical, QDialog#HelpMessageDialog QScroll
 border:0;
 }
 
-/* About Pivx Dialog */
-QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Pivx Contents */
+/* About Swi Dialog */
+QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Swi Contents */
 margin-left:10px;
 }
 
-QDialog#AboutDialog QLabel#label_2 { /* Margin for About Pivx text */
+QDialog#AboutDialog QLabel#label_2 { /* Margin for About Swi text */
 margin-right:10px;
 }
 
@@ -913,11 +913,11 @@ background-color:#ffffff;
 
 QLabel#labelOverviewHeaderRight {
 qproperty-alignment: 'AlignVCenter | AlignRight';
-background-image: url(':/images/pivx_logo_horizontal');
+background-image: url(':/images/swi_logo_horizontal');
 background-repeat: no-repeat;
 }
 
-QWidget .QFrame#frame_Header { /* Header with Page-Title and PIVX-image */
+QWidget .QFrame#frame_Header { /* Header with Page-Title and SWI-image */
 min-width:400px;
 background-color:#ffffff;
 }
