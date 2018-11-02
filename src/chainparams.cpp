@@ -123,12 +123,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x90;
-        pchMessageStart[1] = 0xc4;
-        pchMessageStart[2] = 0xfd;
+        pchMessageStart[0] = 0xaf;
+        pchMessageStart[1] = 0x0d;
+        pchMessageStart[2] = 0x6b;
         pchMessageStart[3] = 0xe9;
         vAlertPubKey = ParseHex("0000098d3ba6ba6e7423fa5cbd6a89e0a9a5348f88d332b44a5cb1a8b7ed2c1eaa335fc8dc4f012cb8241cc0bdafd6ca70c5f5448916e4e6f511bcd746ed57dc50");
-        nDefaultPort = 51472;
+        nDefaultPort = 46922;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // SWI starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -140,20 +140,20 @@ public:
         nTargetSpacing = 1 * 60;  // SWI: 1 minute
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 400000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 259200;
-        nModifierUpdateBlock = 615800;
-        nZerocoinStartHeight = 863787;
+        nLastPOWBlock = 400; // PoW Phase max supply = 100,000 SWI
+        nModifierUpdateBlock = 0;
+        nZerocoinStartHeight = 0;
         nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
-        nBlockEnforceSerialRange = 895400; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 891737; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 891730; //Last valid accumulator checkpoint
-        nBlockEnforceInvalidUTXO = 902850; //Start enforcing the invalid UTXO's
-        nInvalidAmountFiltered = 268200*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 1153160; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
+        nBlockEnforceSerialRange = 0; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 0; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 0; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 0; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 0; //Start enforcing the invalid UTXO's
+        nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
+        nBlockZerocoinV2 = 1; //!> Always active
         nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
         nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
 
@@ -167,7 +167,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "U.S. News & World Report Jan 28 2016 With His Absence, Trump Dominates Another Debate";
+        const char* pszTimestamp = "SWINCA, Real-Estate";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -192,8 +192,8 @@ public:
         vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
         vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 30);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 20);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
@@ -230,7 +230,7 @@ public:
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
-        nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zpiv to be stakable
+        nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zswi to be stakable
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }

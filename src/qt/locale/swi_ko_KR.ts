@@ -176,16 +176,16 @@
         <translation>지갑 암호화 확인</translation>
     </message>
     <message>
-        <source>SWI will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
-        <translation>SWI는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 PIVs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
+        <source>SWI will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SWIs from being stolen by malware infecting your computer.</source>
+        <translation>SWI는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 SWIs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>지갑을 암호화 하시겠습니까?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PIV&lt;/b&gt;!</source>
-        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 PIV를 잃게 됩니다&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SWI&lt;/b&gt;!</source>
+        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 SWI를 잃게 됩니다&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -433,8 +433,8 @@
         <translation>겨래내역 보기</translation>
     </message>
     <message>
-        <source>Privacy Actions for zPIV</source>
-        <translation>zPIV 생성 및 관리</translation>
+        <source>Privacy Actions for zSWI</source>
+        <translation>zSWI 생성 및 관리</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1130,8 +1130,8 @@ Address: %4
         <translation>받는 사람이 %1 보다 작은 금액을 받으면 라벨이 빨간색으로 변경됩니다.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 upiv per input.</source>
-        <translation>Can vary +/- %1 upiv per input.</translation>
+        <source>Can vary +/- %1 uswi per input.</source>
+        <translation>Can vary +/- %1 uswi per input.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1681,8 +1681,8 @@ Please be patient after clicking import.</source>
         <translation>주소 / 금액:</translation>
     </message>
     <message>
-        <source>Add destinations to send PIV to</source>
-        <translation>PIV를 보낼 목적지 추가</translation>
+        <source>Add destinations to send SWI to</source>
+        <translation>SWI를 보낼 목적지 추가</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1780,32 +1780,32 @@ Please be patient after clicking import.</source>
         <translation>익명화 레벨을 선택해주세요.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 PIV</source>
-        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 PIV 를 섞을 수 있습니다.</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 SWI</source>
+        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 SWI 를 섞을 수 있습니다.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 PIV</source>
-        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 PIV 를 섞을 수 있습니다.</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 SWI</source>
+        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 SWI 를 섞을 수 있습니다.</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16개의 개별 마스터노드를 사용</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 PIV to anonymize 10000 PIV</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 PIV 익명화에 약 ~0.025 PIV의 비용이 들어갑니다.</translation>
+        <source>This option is the quickest and will cost about ~0.025 SWI to anonymize 10000 SWI</source>
+        <translation>이 옵션은 가장 빠르게 전송되며 10000 SWI 익명화에 약 ~0.025 SWI의 비용이 들어갑니다.</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 PIV to anonymize 10000 PIV</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 PIV 익명화에 약 0.05 PIV의 비용이 들어갑니다.</translation>
+        <source>This option is moderately fast and will cost about 0.05 SWI to anonymize 10000 SWI</source>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 SWI 익명화에 약 0.05 SWI의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
     </message>
     <message>
-        <source>0.1 PIV per 10000 PIV you anonymize.</source>
-        <translation>10000 PIV 익명화에 0.1 PIV 가 듭니다.</translation>
+        <source>0.1 SWI per 10000 SWI you anonymize.</source>
+        <translation>10000 SWI 익명화에 0.1 SWI 가 듭니다.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1948,28 +1948,28 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
     </message>
     <message>
-        <source>Enable automatic minting of PIV units to zPIV</source>
-        <translation>보상받은 PIV를 zPIV로 자동변환 활성화</translation>
+        <source>Enable automatic minting of SWI units to zSWI</source>
+        <translation>보상받은 SWI를 zSWI로 자동변환 활성화</translation>
     </message>
     <message>
-        <source>Enable zPIV Automint</source>
-        <translation>zPIV 자동생성 활성화</translation>
+        <source>Enable zSWI Automint</source>
+        <translation>zSWI 자동생성 활성화</translation>
     </message>
     <message>
-        <source>Percentage of incoming PIV which get automatically converted to zPIV via Zerocoin Protocol (min: 10%)</source>
-        <translation>PIV수신시 자동변환 zPIV 비율 (최소값:10%)</translation>
+        <source>Percentage of incoming SWI which get automatically converted to zSWI via Zerocoin Protocol (min: 10%)</source>
+        <translation>SWI수신시 자동변환 zSWI 비율 (최소값:10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zPIV</source>
-        <translation>자동 변환되는 zPIV 비율</translation>
+        <source>Percentage of autominted zSWI</source>
+        <translation>자동 변환되는 zSWI 비율</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough PIV for this denomination is available</source>
-        <translation>이 디노미네이션의 PIV가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough SWI for this denomination is available</source>
+        <translation>이 디노미네이션의 SWI가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
     </message>
     <message>
-        <source>Preferred Automint zPIV Denomination</source>
-        <translation>선호하는 자동생성 zPIV 디노미네이션 </translation>
+        <source>Preferred Automint zSWI Denomination</source>
+        <translation>선호하는 자동생성 zSWI 디노미네이션 </translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2131,8 +2131,8 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>전체 잔액, (현재 전송이 불가능한 코인 포함)</translation>
     </message>
     <message>
-        <source>PIV Balance</source>
-        <translation>PIV 잔액</translation>
+        <source>SWI Balance</source>
+        <translation>SWI 잔액</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -2159,14 +2159,14 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>현재 SWI 잔액, 미확정, 생성중인 코인 포함</translation>
     </message>
     <message>
-        <source>zPIV Balance</source>
-        <translation>zPIV 잔액</translation>
+        <source>zSWI Balance</source>
+        <translation>zSWI 잔액</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zPIV are spendable.</source>
+These zSWI are spendable.</source>
         <translation>성숙한 : 그것이 발행 된 후 같은 명칭의 20 개 이상의 확인 및 1 개 민트.
-이 zPIV는 쓸만합니다.</translation>
+이 zSWI는 쓸만합니다.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2219,8 +2219,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>출금 가능 액수:</translation>
     </message>
     <message>
-        <source>Locked PIV or Masternode collaterals. These are excluded from zPIV minting.</source>
-        <translation>잠금 PIV 또는 Masternode collaterals. 이들은 zPIV minting에서 제외됩니다.</translation>
+        <source>Locked SWI or Masternode collaterals. These are excluded from zSWI minting.</source>
+        <translation>잠금 SWI 또는 Masternode collaterals. 이들은 zSWI minting에서 제외됩니다.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2231,8 +2231,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>미승인:</translation>
     </message>
     <message>
-        <source>Your current zPIV balance, unconfirmed and immature zPIV included.</source>
-        <translation>zPIV 잔액, 미확정, 생성중인 zPIV 포함.</translation>
+        <source>Your current zSWI balance, unconfirmed and immature zSWI included.</source>
+        <translation>zSWI 잔액, 미확정, 생성중인 zSWI 포함.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2243,10 +2243,10 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>동기화되지 않음</translation>
     </message>
     <message>
-        <source>Current percentage of zPIV.
+        <source>Current percentage of zSWI.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>현재 zPIV의 백분율 .
+        <translation>현재 zSWI의 백분율 .
 자동 저장 기능이 활성화 된 경우이 비율은 구성된 자동 저장 비율 (기본값 = 10 %)을 기준으로 정해집니다.</translation>
     </message>
     <message>
@@ -2261,7 +2261,7 @@ If AutoMint is enabled this percentage will settle around the configured AutoMin
         <source>AutoMint is currently disabled.
 To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in swi.conf</source>
         <translation>자동 저장 기능이 현재 사용 중지되었습니다 .
-자동 변환을 사용하려면 pivotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
+자동 변환을 사용하려면 swiotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
     </message>
 </context>
 <context>
@@ -2389,8 +2389,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in swi.conf</
         <translation>0</translation>
     </message>
     <message>
-        <source>zPIV</source>
-        <translation>zPIV</translation>
+        <source>zSWI</source>
+        <translation>zSWI</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -2401,8 +2401,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in swi.conf</
         <translation>생성 가능한 수량:</translation>
     </message>
     <message>
-        <source>0.000 000 00 PIV</source>
-        <translation>0.000 000 00 PIV</translation>
+        <source>0.000 000 00 SWI</source>
+        <translation>0.000 000 00 SWI</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2441,16 +2441,16 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in swi.conf</
         <translation>프라이버시</translation>
     </message>
     <message>
-        <source>Enter an amount of Piv to convert to zPIV</source>
-        <translation>zPIV로 변환할 PIV 수량을 입력하세요.</translation>
+        <source>Enter an amount of Swi to convert to zSWI</source>
+        <translation>zSWI로 변환할 SWI 수량을 입력하세요.</translation>
     </message>
     <message>
-        <source>zPIV Control</source>
-        <translation>zPIV 컨트롤</translation>
+        <source>zSWI Control</source>
+        <translation>zSWI 컨트롤</translation>
     </message>
     <message>
-        <source>zPIV Selected:</source>
-        <translation>선택된 zPIV :</translation>
+        <source>zSWI Selected:</source>
+        <translation>선택된 zSWI :</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2465,24 +2465,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in swi.conf</
         <translation>제로코인 보내기</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zPIV for spending</source>
-        <translation>전송 가능한 zPIV</translation>
+        <source>Available (mature and spendable) zSWI for spending</source>
+        <translation>전송 가능한 zSWI</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>가능한 잔액:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zPIV for spending
+        <source>Available (mature and spendable) zSWI for spending
 
-zPIV are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>지출에 사용할 수있는 성숙한 소비재 zPIV
+zSWI are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>지출에 사용할 수있는 성숙한 소비재 zSWI
 
-zPIV는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
+zSWI는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
     </message>
     <message>
-        <source>0 zPIV</source>
-        <translation>0 zPIV</translation>
+        <source>0 zSWI</source>
+        <translation>0 zSWI</translation>
     </message>
     <message>
         <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
@@ -2502,7 +2502,7 @@ zPIV는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
     </message>
     <message>
         <source>The SWI address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>PIV를 전송할 SWI 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+        <translation>SWI를 전송할 SWI 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2553,7 +2553,7 @@ zPIV는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
         <translation>제로코인 상태 :</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zPIV</source>
+        <source>Total Balance including unconfirmed and immature zSWI</source>
         <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
     </message>
     <message>
@@ -2575,24 +2575,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zPIV minting.
+        <source>Show the current status of automatic zSWI minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to swi.conf
 - disable: add 'enablezeromint=0' to swi.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zPIV
+- menu Settings-&gt;Options-&gt;Percentage of autominted zSWI
 
 </source>
-        <translation>현재 zPIV 자동 생성 상태를 보여줍니다.
+        <translation>현재 zSWI 자동 생성 상태를 보여줍니다.
 
 자동생성 상태를 변경하시려면 (지갑 재시작 필요함):
 - 활성화: 'enablezeromint=1' 를 swi.conf 파일에 추가
 - 비활성화: 'enablezeromint=0' 를 swi.conf 파일에 추가
 
 자동 생성 비율 변경하시려면 (지갑 재시작 필요없음):
-- 메뉴 설정-&gt;옵션-&gt;zPIV 자동생성 비율
+- 메뉴 설정-&gt;옵션-&gt;zSWI 자동생성 비율
 
 </translation>
     </message>
@@ -2789,12 +2789,12 @@ Maximum allowed: </source>
 가능한 최대값 :</translation>
     </message>
     <message>
-        <source>zPIV Spend #: </source>
-        <translation>zPIV 전송 # :</translation>
+        <source>zSWI Spend #: </source>
+        <translation>zSWI 전송 # :</translation>
     </message>
     <message>
-        <source>zPIV Mint</source>
-        <translation>zPIV 생성</translation>
+        <source>zSWI Mint</source>
+        <translation>zSWI 생성</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2809,12 +2809,12 @@ Maximum allowed: </source>
         <translation> 구성된 목표 비율 : &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zPIV is currently disabled due to maintenance.</source>
-        <translation>zPIV는 현재 점검중이라 사용하실수 없습니다.</translation>
+        <source>zSWI is currently disabled due to maintenance.</source>
+        <translation>zSWI는 현재 점검중이라 사용하실수 없습니다.</translation>
     </message>
     <message>
-        <source>zPIV is currently undergoing maintenance.</source>
-        <translation>zPIV는 현재 점검중입니다.</translation>
+        <source>zSWI is currently undergoing maintenance.</source>
+        <translation>zSWI는 현재 점검중입니다.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2901,8 +2901,8 @@ Maximum allowed: </source>
         <translation>성공적으로 발행됨</translation>
     </message>
     <message>
-        <source> zPIV in </source>
-        <translation> zPIV in </translation>
+        <source> zSWI in </source>
+        <translation> zSWI in </translation>
     </message>
     <message>
         <source> sec. Used denominations:
@@ -2961,12 +2961,12 @@ Maximum allowed: </source>
         <translation>코인 전송 확인</translation>
     </message>
     <message>
-        <source>Version 1 zPIV require a security level of 100 to successfully spend.</source>
-        <translation>zPIV 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
+        <source>Version 1 zSWI require a security level of 100 to successfully spend.</source>
+        <translation>zSWI 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
     </message>
     <message>
-        <source>Failed to spend zPIV</source>
-        <translation>zPIV 전송 실패</translation>
+        <source>Failed to spend zSWI</source>
+        <translation>zSWI 전송 실패</translation>
     </message>
     <message>
         <source>Failed to fetch mint associated with serial hash</source>
@@ -2987,7 +2987,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message numerus="yes">
         <source>PrivacyDialog</source>
-        <comment>Enter an amount of PIV to convert to zPIV</comment>
+        <comment>Enter an amount of SWI to convert to zSWI</comment>
         <translation><numerusform>PrivacyDialog</numerusform></translation>
     </message>
     <message>
@@ -3304,8 +3304,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>맞춤 백업 경로 :</translation>
     </message>
     <message>
-        <source>Custom zPIV Backup Path:</source>
-        <translation>맞춤 zPIV 백업 경로 :</translation>
+        <source>Custom zSWI Backup Path:</source>
+        <translation>맞춤 zSWI 백업 경로 :</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -3749,8 +3749,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>UTXO 크기:</translation>
     </message>
     <message>
-        <source>0 PIV</source>
-        <translation>0 PIV</translation>
+        <source>0 SWI</source>
+        <translation>0 SWI</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3805,12 +3805,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>자동으로 선택됩니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uPIVs로 설정되고,&lt;br /&gt;1000 uPIVs 안에는 최소 "킬로바이트당" 250 uPIVs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uSWIs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uSWIs in fee,&lt;br /&gt;while "at least" pays 1000 uSWIs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uSWIs로 설정되고,&lt;br /&gt;1000 uSWIs 안에는 최소 "킬로바이트당" 250 uSWIs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "total at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uPIVs로 설정되고,&lt;br /&gt;1000 uPIVs 안에는 전체에서 최소 "킬로바이트당" 250 uPIVs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uSWIs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uSWIs in fee,&lt;br /&gt;while "total at least" pays 1000 uSWIs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uSWIs로 설정되고,&lt;br /&gt;1000 uSWIs 안에는 전체에서 최소 "킬로바이트당" 250 uSWIs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for SWI transactions than the network can process.</source>
@@ -3861,8 +3861,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>&amp;받는 사람 추가</translation>
     </message>
     <message>
-        <source>Anonymized PIV</source>
-        <translation>익명화된 PIV</translation>
+        <source>Anonymized SWI</source>
+        <translation>익명화된 SWI</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -4526,12 +4526,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>난독화를 통해 수신 됨</translation>
     </message>
     <message>
-        <source>PIV Stake</source>
-        <translation>PIV stake</translation>
+        <source>SWI Stake</source>
+        <translation>SWI stake</translation>
     </message>
     <message>
-        <source>zPIV Stake</source>
-        <translation>zPIV stake</translation>
+        <source>zSWI Stake</source>
+        <translation>zSWI stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4550,32 +4550,32 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>난독화 표시 만들기</translation>
     </message>
     <message>
-        <source>Converted PIV to zPIV</source>
-        <translation>PIV를 zPIV로 변환</translation>
+        <source>Converted SWI to zSWI</source>
+        <translation>SWI를 zSWI로 변환</translation>
     </message>
     <message>
-        <source>Spent zPIV</source>
-        <translation>zPIV 사용</translation>
+        <source>Spent zSWI</source>
+        <translation>zSWI 사용</translation>
     </message>
     <message>
-        <source>Received PIV from zPIV</source>
-        <translation>zPIV를 PIV로 받음</translation>
+        <source>Received SWI from zSWI</source>
+        <translation>zSWI를 SWI로 받음</translation>
     </message>
     <message>
-        <source>Minted Change as zPIV from zPIV Spend</source>
-        <translation>zPIV 전송후 남은 zPIV로 잔돈 생성</translation>
+        <source>Minted Change as zSWI from zSWI Spend</source>
+        <translation>zSWI 전송후 남은 zSWI로 잔돈 생성</translation>
     </message>
     <message>
-        <source>Converted zPIV to PIV</source>
-        <translation>zPIV를 PIV로 변환</translation>
+        <source>Converted zSWI to SWI</source>
+        <translation>zSWI를 SWI로 변환</translation>
     </message>
     <message>
-        <source>Anonymous (zPIV Transaction)</source>
-        <translation>Anonymous (zPIV 거래)</translation>
+        <source>Anonymous (zSWI Transaction)</source>
+        <translation>Anonymous (zSWI 거래)</translation>
     </message>
     <message>
-        <source>Anonymous (zPIV Stake)</source>
-        <translation>Anonymous (zPIV 스테이킹)</translation>
+        <source>Anonymous (zSWI Stake)</source>
+        <translation>Anonymous (zSWI 스테이킹)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4785,12 +4785,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>내보내기 성공</translation>
     </message>
     <message>
-        <source>Received PIV from zPIV</source>
-        <translation>zPIV를 PIV로 받음</translation>
+        <source>Received SWI from zSWI</source>
+        <translation>zSWI를 SWI로 받음</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zPIV</source>
-        <translation>제로코인 전송, 잔돈은 zPIV</translation>
+        <source>Zerocoin Spend, Change in zSWI</source>
+        <translation>제로코인 전송, 잔돈은 zSWI</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4826,8 +4826,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>코인 전송 </translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 PIV로 제한됩니다.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 SWI.</source>
+        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 SWI로 제한됩니다.</translation>
     </message>
 </context>
 <context>
@@ -4858,10 +4858,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>ZPivControlDialog</name>
+    <name>ZSwiControlDialog</name>
     <message>
-        <source>Select zPIV to Spend</source>
-        <translation>사용할 zPIV 선택</translation>
+        <source>Select zSWI to Spend</source>
+        <translation>사용할 zSWI 선택</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4872,8 +4872,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>0</translation>
     </message>
     <message>
-        <source>zPIV</source>
-        <translation>zPIV</translation>
+        <source>zSWI</source>
+        <translation>zSWI</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4939,16 +4939,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zPIV minting (0-1, default: %u)</source>
-        <translation>Enable automatic wallet backups triggered after each zPIV minting (0-1, default: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zSWI minting (0-1, default: %u)</source>
+        <translation>Enable automatic wallet backups triggered after each zSWI minting (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for PIV inputs (0-1, default: %u)</source>
-        <translation>Enable or disable staking functionality for PIV inputs (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for SWI inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for SWI inputs (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zPIV inputs (0-1, default: %u)</source>
-        <translation>Enable or disable staking functionality for zPIV inputs (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for zSWI inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for zSWI inputs (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4983,12 +4983,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>최고 블록이 변경될 경우 명령을 실행하십시오 (명령 내 %s 는 블록 해시로 대체 되었습니다)</translation>
     </message>
     <message>
-        <source>Fees (in PIV/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>이것보다 작은 수수료 (PIV/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in SWI/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>이것보다 작은 수수료 (SWI/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
-        <source>Fees (in PIV/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>이것보다 작은 수수료 (PIV/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in SWI/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>이것보다 작은 수수료 (SWI/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -5095,12 +5095,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>이 트랜잭션를 위해 난독화 표기된 충분한 금액을 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 PIV.</source>
-        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 PIV과 일치하지 않음.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SWI.</source>
+        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 SWI과 일치하지 않음.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 PIV.</source>
-        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 PIV와 같지 않음</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 SWI.</source>
+        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 SWI와 같지 않음</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -5415,8 +5415,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>블록을 받아오는데 실패했습니다.</translation>
     </message>
     <message>
-        <source>Fee (in PIV/kB) to add to transactions you send (default: %s)</source>
-        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (PIV/kB) (기본값: %s)</translation>
+        <source>Fee (in SWI/kB) to add to transactions you send (default: %s)</source>
+        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (SWI/kB) (기본값: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>
@@ -5544,11 +5544,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
-        <translation>자동생성 zPIV 비율  (1-100, default: %u)</translation>
+        <translation>자동생성 zSWI 비율  (1-100, default: %u)</translation>
     </message>
     <message>
-        <source>Reindex the PIV and zPIV money supply statistics</source>
-        <translation>PIV 및 zPIV 공급량 다시 색인</translation>
+        <source>Reindex the SWI and zSWI money supply statistics</source>
+        <translation>SWI 및 zSWI 공급량 다시 색인</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5623,8 +5623,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>자동생성 제로코인 선호 디노미네이션 (1/5/10/50/100/500/1000/5000) 0사용안됨, 기본값 : %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zPIV backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Specify custom backup path to add a copy of any automatic zPIV backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
+        <source>Specify custom backup path to add a copy of any automatic zSWI backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specify custom backup path to add a copy of any automatic zSWI backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6123,8 +6123,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>sporks와 동기화 중입니다...</translation>
     </message>
     <message>
-        <source>Syncing zPIV wallet...</source>
-        <translation>zPIV 지갑 동기화중...</translation>
+        <source>Syncing zSWI wallet...</source>
+        <translation>zSWI 지갑 동기화중...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -6271,8 +6271,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>JSON-RPC 연결 사용자 이름</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zPIV</source>
-        <translation>Value is below the smallest available denomination (= 1) of zPIV</translation>
+        <source>Value is below the smallest available denomination (= 1) of zSWI</source>
+        <translation>Value is below the smallest available denomination (= 1) of zSWI</translation>
     </message>
     <message>
         <source>Value more than Obfuscation pool maximum allows.</source>
@@ -6287,8 +6287,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>지갑 인증 중...</translation>
     </message>
     <message>
-        <source>Version 1 zPIV require a security level of 100 to successfully spend.</source>
-        <translation>zPIV 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
+        <source>Version 1 zSWI require a security level of 100 to successfully spend.</source>
+        <translation>zSWI 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
@@ -6332,7 +6332,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>You don't have enough Zerocoins in your wallet</source>
-        <translation>지갑에 zPIV 가 부족합니다.</translation>
+        <translation>지갑에 zSWI 가 부족합니다.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>

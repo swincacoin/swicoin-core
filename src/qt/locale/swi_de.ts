@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Wählen Sie die Adresse aus, an die Sie PIV überweisen möchten</translation>
+        <translation>Wählen Sie die Adresse aus, an die Sie SWI überweisen möchten</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Wählen Sie die Adresse aus, über die Sie PIV empfangen wollen</translation>
+        <translation>Wählen Sie die Adresse aus, über die Sie SWI empfangen wollen</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your SWI addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dies sind ihre SWI-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie PIV überweisen.</translation>
+        <translation>Dies sind ihre SWI-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie SWI überweisen.</translation>
     </message>
     <message>
         <source>These are your SWI addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -176,16 +176,16 @@
         <translation>Verschlüsselung der Wallet bestätigen</translation>
     </message>
     <message>
-        <source>SWI will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
-        <translation>Die Anwendung wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte bedenken Sie, dass auch die Verschlüsselung nicht sicher vor Diebstahl ihrer PIVs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
+        <source>SWI will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your SWIs from being stolen by malware infecting your computer.</source>
+        <translation>Die Anwendung wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte bedenken Sie, dass auch die Verschlüsselung nicht sicher vor Diebstahl ihrer SWIs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Sind Sie sich sicher, dass Sie Ihre Wallet verschlüsseln möchten?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PIV&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, &lt;b&gt;verlieren Sie alle ihre PIVs&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SWI&lt;/b&gt;!</source>
+        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, &lt;b&gt;verlieren Sie alle ihre SWIs&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -433,8 +433,8 @@
         <translation>Transaktionsverlauf durchsuchen</translation>
     </message>
     <message>
-        <source>Privacy Actions for zPIV</source>
-        <translation>Datenschutzmaßnahmen für zPIV</translation>
+        <source>Privacy Actions for zSWI</source>
+        <translation>Datenschutzmaßnahmen für zSWI</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -1125,8 +1125,8 @@ Adresse: %4</translation>
         <translation>Diese Bezeichnung wird rot, wenn ein Empfänger einen Betrag erhält, der kleiner ist als %1.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 upiv per input.</source>
-        <translation>Kann um +/- %1 upiv pro Eingang variieren.</translation>
+        <source>Can vary +/- %1 uswi per input.</source>
+        <translation>Kann um +/- %1 uswi pro Eingang variieren.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1672,8 +1672,8 @@ Bitte haben Sie etwas Geduld, nachdem Sie auf Importieren geklickt haben.</trans
         <translation>Adresse / Menge:</translation>
     </message>
     <message>
-        <source>Add destinations to send PIV to</source>
-        <translation>Füge Transaktionsziele für PIV-Überweisung hinzu</translation>
+        <source>Add destinations to send SWI to</source>
+        <translation>Füge Transaktionsziele für SWI-Überweisung hinzu</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1771,32 +1771,32 @@ Bitte haben Sie etwas Geduld, nachdem Sie auf Importieren geklickt haben.</trans
         <translation>Bitte den gewünschten Privatsphäre Level auswählen.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 PIV</source>
-        <translation>2 separate Masternodes verwenden um bis zu 10000 PIV zu mixen</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 SWI</source>
+        <translation>2 separate Masternodes verwenden um bis zu 10000 SWI zu mixen</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 PIV</source>
-        <translation>8 separate Masternodes verwenden um bis zu 10000 PIV zu mixen</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 SWI</source>
+        <translation>8 separate Masternodes verwenden um bis zu 10000 SWI zu mixen</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16 separate Masternodes verwenden</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 PIV to anonymize 10000 PIV</source>
-        <translation>Diese Option ist die schnellst und kostet ungefähr ~0.025 PIV um 10000 PIV zu anonymisieren </translation>
+        <source>This option is the quickest and will cost about ~0.025 SWI to anonymize 10000 SWI</source>
+        <translation>Diese Option ist die schnellst und kostet ungefähr ~0.025 SWI um 10000 SWI zu anonymisieren </translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 PIV to anonymize 10000 PIV</source>
-        <translation>Diese Option ist angemessen schnell und kostet ungefähr  0.05 PIV um 10000 PIV zu anonymisieren</translation>
+        <source>This option is moderately fast and will cost about 0.05 SWI to anonymize 10000 SWI</source>
+        <translation>Diese Option ist angemessen schnell und kostet ungefähr  0.05 SWI um 10000 SWI zu anonymisieren</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Diese Option ist die langsamste und sicherste Option. Die Verwendung maximaler Anonymisierung kostet</translation>
     </message>
     <message>
-        <source>0.1 PIV per 10000 PIV you anonymize.</source>
-        <translation>0.1 PIV per 10000 PIV die anonymisiert werden.</translation>
+        <source>0.1 SWI per 10000 SWI you anonymize.</source>
+        <translation>0.1 SWI per 10000 SWI die anonymisiert werden.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1939,28 +1939,28 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>Port mit &amp;UPnP mappen</translation>
     </message>
     <message>
-        <source>Enable automatic minting of PIV units to zPIV</source>
-        <translation>Aktivieren Sie die automatische Prägung von PIV-Einheiten zu zPIV</translation>
+        <source>Enable automatic minting of SWI units to zSWI</source>
+        <translation>Aktivieren Sie die automatische Prägung von SWI-Einheiten zu zSWI</translation>
     </message>
     <message>
-        <source>Enable zPIV Automint</source>
-        <translation>Aktivieren Sie zPIV Automint</translation>
+        <source>Enable zSWI Automint</source>
+        <translation>Aktivieren Sie zSWI Automint</translation>
     </message>
     <message>
-        <source>Percentage of incoming PIV which get automatically converted to zPIV via Zerocoin Protocol (min: 10%)</source>
-        <translation>Anteil des eingehenden PIV, welcher automatisch zu zPIV via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
+        <source>Percentage of incoming SWI which get automatically converted to zSWI via Zerocoin Protocol (min: 10%)</source>
+        <translation>Anteil des eingehenden SWI, welcher automatisch zu zSWI via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zPIV</source>
-        <translation>Prozentsatz der automatisierten zPIV</translation>
+        <source>Percentage of autominted zSWI</source>
+        <translation>Prozentsatz der automatisierten zSWI</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough PIV for this denomination is available</source>
-        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend PIV für diese Stückelung verfügbar ist</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough SWI for this denomination is available</source>
+        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend SWI für diese Stückelung verfügbar ist</translation>
     </message>
     <message>
-        <source>Preferred Automint zPIV Denomination</source>
-        <translation>Bevorzugte automatisierte zPIV Stückelung </translation>
+        <source>Preferred Automint zSWI Denomination</source>
+        <translation>Bevorzugte automatisierte zSWI Stückelung </translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
@@ -2122,8 +2122,8 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>Gesamtsaldo, einschließlich aller nicht verfügbaren Münzen.</translation>
     </message>
     <message>
-        <source>PIV Balance</source>
-        <translation>PIV Bilanzen</translation>
+        <source>SWI Balance</source>
+        <translation>SWI Bilanzen</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -2150,14 +2150,14 @@ https://www.transifex.com/swi-project/swi-project-translations</translation>
         <translation>Ihr aktueller SWI-Saldo, unbestätigte und unreife Transaktionen sind enthalten</translation>
     </message>
     <message>
-        <source>zPIV Balance</source>
-        <translation>zPIV Bilanzen</translation>
+        <source>zSWI Balance</source>
+        <translation>zSWI Bilanzen</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zPIV are spendable.</source>
+These zSWI are spendable.</source>
         <translation>Ausgereift: Mehr als 20 Bestätigungen und mehr als 1 Prägungen der selben Stückelung nach erfolgter Prägung.
-Diese zPIV sind Verwendbar.</translation>
+Diese zSWI sind Verwendbar.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2210,8 +2210,8 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>Verfügbar:</translation>
     </message>
     <message>
-        <source>Locked PIV or Masternode collaterals. These are excluded from zPIV minting.</source>
-        <translation>Gesperrte PIV oder Masternode Pfand. Diese sind vom zPIV Prägen ausgeschlossen.</translation>
+        <source>Locked SWI or Masternode collaterals. These are excluded from zSWI minting.</source>
+        <translation>Gesperrte SWI oder Masternode Pfand. Diese sind vom zSWI Prägen ausgeschlossen.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2222,8 +2222,8 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>Unbestätigt:</translation>
     </message>
     <message>
-        <source>Your current zPIV balance, unconfirmed and immature zPIV included.</source>
-        <translation>Ihre aktuelle zPIV-Bilanz, unbestätigte und unreife zPIV enthalten.</translation>
+        <source>Your current zSWI balance, unconfirmed and immature zSWI included.</source>
+        <translation>Ihre aktuelle zSWI-Bilanz, unbestätigte und unreife zSWI enthalten.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2234,10 +2234,10 @@ Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter
         <translation>nicht synchron</translation>
     </message>
     <message>
-        <source>Current percentage of zPIV.
+        <source>Current percentage of zSWI.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Aktueller Prozentsatz an zPIV.
+        <translation>Aktueller Prozentsatz an zSWI.
 Falls das automatische Prägen aktiviert ist, wird sich dieser Prozentsatz um den eingestellten Prozentsatz fürs automatisierte Prägen einpendeln (Standard = 10%).
 </translation>
     </message>
@@ -2381,8 +2381,8 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>0</translation>
     </message>
     <message>
-        <source>zPIV</source>
-        <translation>zPIV</translation>
+        <source>zSWI</source>
+        <translation>zSWI</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -2393,8 +2393,8 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>Verfügbar für Prägung:</translation>
     </message>
     <message>
-        <source>0.000 000 00 PIV</source>
-        <translation>0.000 000 00 PIV</translation>
+        <source>0.000 000 00 SWI</source>
+        <translation>0.000 000 00 SWI</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2433,16 +2433,16 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>PRIVATSPHÄRE</translation>
     </message>
     <message>
-        <source>Enter an amount of Piv to convert to zPIV</source>
-        <translation>Geben Sie den Betrag ein, den sie von PIV in zPIV umwandeln möchten</translation>
+        <source>Enter an amount of Swi to convert to zSWI</source>
+        <translation>Geben Sie den Betrag ein, den sie von SWI in zSWI umwandeln möchten</translation>
     </message>
     <message>
-        <source>zPIV Control</source>
-        <translation>zPIV Control</translation>
+        <source>zSWI Control</source>
+        <translation>zSWI Control</translation>
     </message>
     <message>
-        <source>zPIV Selected:</source>
-        <translation>zPIV ausgewählt:</translation>
+        <source>zSWI Selected:</source>
+        <translation>zSWI ausgewählt:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2457,24 +2457,24 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>Überweise Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zPIV for spending</source>
-        <translation>Verfügbare (ausgereifte und aufwendbare) zPIV zum Überweisen</translation>
+        <source>Available (mature and spendable) zSWI for spending</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zSWI zum Überweisen</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Verfügbare Bilanz:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zPIV for spending
+        <source>Available (mature and spendable) zSWI for spending
 
-zPIV are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Verfügbare (ausgereifte und aufwendbare) zPIV zum Überweisen
+zSWI are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zSWI zum Überweisen
 
-zPIV sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägungen in der selben Stückelung nach erfolgter Prägung halten.</translation>
+zSWI sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägungen in der selben Stückelung nach erfolgter Prägung halten.</translation>
     </message>
     <message>
-        <source>0 zPIV</source>
-        <translation>0 zPIV</translation>
+        <source>0 zSWI</source>
+        <translation>0 zSWI</translation>
     </message>
     <message>
         <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
@@ -2545,8 +2545,8 @@ zPIV sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägung
         <translation>Zerocoin Statistiken:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zPIV</source>
-        <translation>Totales Guthaben, einschließlich unbestätigter und unreifer zPIV</translation>
+        <source>Total Balance including unconfirmed and immature zSWI</source>
+        <translation>Totales Guthaben, einschließlich unbestätigter und unreifer zSWI</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2567,24 +2567,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter Prägung</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zPIV minting.
+        <source>Show the current status of automatic zSWI minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to swi.conf
 - disable: add 'enablezeromint=0' to swi.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zPIV
+- menu Settings-&gt;Options-&gt;Percentage of autominted zSWI
 
 </source>
-        <translation>Zeigt den aktuellen Status der automatischen zPIV-Prägung an
+        <translation>Zeigt den aktuellen Status der automatischen zSWI-Prägung an
 
 Um den Status zu ändern (Neustart erforderlich): 
 - enable: füge 'enablezeromint = 1' zu swi.conf hinzu
 - disable: füge 'enablezeromint = 0' zu swi.conf hinzu
 
 Um den Prozentsatz zu ändern (kein Neustart erforderlich): 
-- Menü Einstellungen-&gt; Optionen-&gt; Prozentsatz der autom. zPIV
+- Menü Einstellungen-&gt; Optionen-&gt; Prozentsatz der autom. zSWI
 </translation>
     </message>
     <message>
@@ -2780,12 +2780,12 @@ Maximum allowed: </source>
 Maximal erlaubt:</translation>
     </message>
     <message>
-        <source>zPIV Spend #: </source>
-        <translation>zPIV Ausgeben #:</translation>
+        <source>zSWI Spend #: </source>
+        <translation>zSWI Ausgeben #:</translation>
     </message>
     <message>
-        <source>zPIV Mint</source>
-        <translation>zPIV Prägen</translation>
+        <source>zSWI Mint</source>
+        <translation>zSWI Prägen</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2800,12 +2800,12 @@ Maximal erlaubt:</translation>
         <translation>Konfigurierter Zielprozentsatz: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zPIV is currently disabled due to maintenance.</source>
-        <translation>zPIV ist aktuell deaktiviert aufgrund von Wartungsarbeiten.</translation>
+        <source>zSWI is currently disabled due to maintenance.</source>
+        <translation>zSWI ist aktuell deaktiviert aufgrund von Wartungsarbeiten.</translation>
     </message>
     <message>
-        <source>zPIV is currently undergoing maintenance.</source>
-        <translation>zPIV unterliegt momentan Wartungsarbeiten.</translation>
+        <source>zSWI is currently undergoing maintenance.</source>
+        <translation>zSWI unterliegt momentan Wartungsarbeiten.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2892,8 +2892,8 @@ Maximal erlaubt:</translation>
         <translation>Erfolgreich geprägt</translation>
     </message>
     <message>
-        <source> zPIV in </source>
-        <translation> zPIV in </translation>
+        <source> zSWI in </source>
+        <translation> zSWI in </translation>
     </message>
     <message>
         <source> sec. Used denominations:
@@ -2952,12 +2952,12 @@ Maximal erlaubt:</translation>
         <translation>Sende Coins bestätigen</translation>
     </message>
     <message>
-        <source>Version 1 zPIV require a security level of 100 to successfully spend.</source>
-        <translation>Version 1 zPIV benötigen eine Sicherheitsstufe von 100 um erfolgreich ausgegeben werden zu können.</translation>
+        <source>Version 1 zSWI require a security level of 100 to successfully spend.</source>
+        <translation>Version 1 zSWI benötigen eine Sicherheitsstufe von 100 um erfolgreich ausgegeben werden zu können.</translation>
     </message>
     <message>
-        <source>Failed to spend zPIV</source>
-        <translation>zPIV Überweisung fehlgeschlagen</translation>
+        <source>Failed to spend zSWI</source>
+        <translation>zSWI Überweisung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Failed to fetch mint associated with serial hash</source>
@@ -2979,7 +2979,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message numerus="yes">
         <source>PrivacyDialog</source>
-        <comment>Enter an amount of PIV to convert to zPIV</comment>
+        <comment>Enter an amount of SWI to convert to zSWI</comment>
         <translation><numerusform>PrivacyDialog</numerusform><numerusform>PrivacyDialog</numerusform></translation>
     </message>
     <message>
@@ -3296,8 +3296,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Benutzerdefinierter Sicherungspfad:</translation>
     </message>
     <message>
-        <source>Custom zPIV Backup Path:</source>
-        <translation>Benutzerdefinierter zPIV Sicherungspfad:</translation>
+        <source>Custom zSWI Backup Path:</source>
+        <translation>Benutzerdefinierter zSWI Sicherungspfad:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -3665,7 +3665,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>PIVs überweisen</translation>
+        <translation>SWIs überweisen</translation>
     </message>
     <message>
         <source>SEND</source>
@@ -3740,8 +3740,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>UTXO Größe:</translation>
     </message>
     <message>
-        <source>0 PIV</source>
-        <translation>0 PIV</translation>
+        <source>0 SWI</source>
+        <translation>0 SWI</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3796,12 +3796,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Coins automatisch ausgewählt</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uPIVs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uPIVs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uPIVs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uSWIs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uSWIs in fee,&lt;br /&gt;while "at least" pays 1000 uSWIs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uSWIs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uSWIs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uSWIs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uPIVs in fee,&lt;br /&gt;while "total at least" pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uPIVs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uPIVs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uPIVs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uSWIs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uSWIs in fee,&lt;br /&gt;while "total at least" pays 1000 uSWIs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uSWIs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uSWIs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uSWIs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for SWI transactions than the network can process.</source>
@@ -3852,8 +3852,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Empfänge&amp;r hinzufügen</translation>
     </message>
     <message>
-        <source>Anonymized PIV</source>
-        <translation>Anonymisierte PIV</translation>
+        <source>Anonymized SWI</source>
+        <translation>Anonymisierte SWI</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -4411,7 +4411,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Erzeugte PIVs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine PIVs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
+        <translation>Erzeugte SWIs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine SWIs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -4516,12 +4516,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>über/durch Verschleierung empfangen</translation>
     </message>
     <message>
-        <source>PIV Stake</source>
-        <translation>PIV Stake</translation>
+        <source>SWI Stake</source>
+        <translation>SWI Stake</translation>
     </message>
     <message>
-        <source>zPIV Stake</source>
-        <translation>zPIV Stake</translation>
+        <source>zSWI Stake</source>
+        <translation>zSWI Stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4540,32 +4540,32 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Verschleierung Erzeugung der Stückelung</translation>
     </message>
     <message>
-        <source>Converted PIV to zPIV</source>
-        <translation>Umgewandeltes PIV zu zPIV</translation>
+        <source>Converted SWI to zSWI</source>
+        <translation>Umgewandeltes SWI zu zSWI</translation>
     </message>
     <message>
-        <source>Spent zPIV</source>
-        <translation>Ausgegebene zPIV</translation>
+        <source>Spent zSWI</source>
+        <translation>Ausgegebene zSWI</translation>
     </message>
     <message>
-        <source>Received PIV from zPIV</source>
-        <translation>Empfangene PIV von zPIV</translation>
+        <source>Received SWI from zSWI</source>
+        <translation>Empfangene SWI von zSWI</translation>
     </message>
     <message>
-        <source>Minted Change as zPIV from zPIV Spend</source>
-        <translation>Geprägtes zPIV Wechselgeld aus zPIV Überweisung</translation>
+        <source>Minted Change as zSWI from zSWI Spend</source>
+        <translation>Geprägtes zSWI Wechselgeld aus zSWI Überweisung</translation>
     </message>
     <message>
-        <source>Converted zPIV to PIV</source>
-        <translation>Umgewandeltes zPIV zu PIV</translation>
+        <source>Converted zSWI to SWI</source>
+        <translation>Umgewandeltes zSWI zu SWI</translation>
     </message>
     <message>
-        <source>Anonymous (zPIV Transaction)</source>
-        <translation>Anonym (zPIV Transaktion)</translation>
+        <source>Anonymous (zSWI Transaction)</source>
+        <translation>Anonym (zSWI Transaktion)</translation>
     </message>
     <message>
-        <source>Anonymous (zPIV Stake)</source>
-        <translation>Anonym (zPIV Stake)</translation>
+        <source>Anonymous (zSWI Stake)</source>
+        <translation>Anonym (zSWI Stake)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4775,12 +4775,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Exportieren erfolgreich</translation>
     </message>
     <message>
-        <source>Received PIV from zPIV</source>
-        <translation>Empfangene PIV von zPIV</translation>
+        <source>Received SWI from zSWI</source>
+        <translation>Empfangene SWI von zSWI</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zPIV</source>
-        <translation>Zerocoin Überweisung, Wechselgeld in zPIV</translation>
+        <source>Zerocoin Spend, Change in zSWI</source>
+        <translation>Zerocoin Überweisung, Wechselgeld in zSWI</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4813,11 +4813,11 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>PIVs überweisen</translation>
+        <translation>SWIs überweisen</translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>Swift Transaktionen unterstützen das senden solch hoher Beträge noch nicht. Transaktionen sind momentan auf %1 PIV begrenzt.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 SWI.</source>
+        <translation>Swift Transaktionen unterstützen das senden solch hoher Beträge noch nicht. Transaktionen sind momentan auf %1 SWI begrenzt.</translation>
     </message>
 </context>
 <context>
@@ -4848,10 +4848,10 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
 </context>
 <context>
-    <name>ZPivControlDialog</name>
+    <name>ZSwiControlDialog</name>
     <message>
-        <source>Select zPIV to Spend</source>
-        <translation>Wählen Sie die zPIV aus, die Sie ausgeben möchten</translation>
+        <source>Select zSWI to Spend</source>
+        <translation>Wählen Sie die zSWI aus, die Sie ausgeben möchten</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4862,8 +4862,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>0</translation>
     </message>
     <message>
-        <source>zPIV</source>
-        <translation>zPIV</translation>
+        <source>zSWI</source>
+        <translation>zSWI</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4929,16 +4929,16 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Veröffentlicht unter der MIT-Software-Lizenz, siehe die beigelegte Datei COPYING oder &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zPIV minting (0-1, default: %u)</source>
-        <translation>Aktiviere nach jeder zPIV-Prägung ausgelöste automatische Wallet-Backups (0-1, Standard: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each zSWI minting (0-1, default: %u)</source>
+        <translation>Aktiviere nach jeder zSWI-Prägung ausgelöste automatische Wallet-Backups (0-1, Standard: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for PIV inputs (0-1, default: %u)</source>
-        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für PIV Eingänge (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for SWI inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für SWI Eingänge (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zPIV inputs (0-1, default: %u)</source>
-        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zPIV Eingänge (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for zSWI inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zSWI Eingänge (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4973,12 +4973,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Befehl ausführen, wenn sich der beste Block ändert (%s in cmd wird durch Blockhash ersetzt)</translation>
     </message>
     <message>
-        <source>Fees (in PIV/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Gebühren (in PIV/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
+        <source>Fees (in SWI/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebühren (in SWI/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in PIV/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebühren (in PIV/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
+        <source>Fees (in SWI/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebühren (in SWI/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -5085,12 +5085,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Nicht genügend gestückeltes, verschleiertes Guthaben für diese Transaktion gefunden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 PIV.</source>
-        <translation>Nicht genügend verschleiertes, nicht gestückeltes Guthaben für diese Transaktion gefunden, die nicht gleich 10000 PIV entsprechen.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SWI.</source>
+        <translation>Nicht genügend verschleiertes, nicht gestückeltes Guthaben für diese Transaktion gefunden, die nicht gleich 10000 SWI entsprechen.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 PIV.</source>
-        <translation>Nicht genügend Guthaben für diese Transaktion gefunden, die nicht gleich 10000 PIV entsprechen.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 SWI.</source>
+        <translation>Nicht genügend Guthaben für diese Transaktion gefunden, die nicht gleich 10000 SWI entsprechen.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -5405,8 +5405,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Block konnte nicht gelesen werden</translation>
     </message>
     <message>
-        <source>Fee (in PIV/kB) to add to transactions you send (default: %s)</source>
-        <translation>Gebühr (in PIV/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
+        <source>Fee (in SWI/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebühr (in SWI/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>
@@ -5537,8 +5537,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Prozent automatisch geprägter Zerocoins (1-100, Standard: %u)</translation>
     </message>
     <message>
-        <source>Reindex the PIV and zPIV money supply statistics</source>
-        <translation>Die Geldmengenstatistik PIV und zPIV neu indizieren</translation>
+        <source>Reindex the SWI and zSWI money supply statistics</source>
+        <translation>Die Geldmengenstatistik SWI und zSWI neu indizieren</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5613,8 +5613,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Bervorzugte Stückelung für automatisch geprägte Zerocoins (1/5/10/50/100/500/1000/5000), 0 falls keine bestimmte Stückelung präferiert wird. Standard: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zPIV backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen automatischen zPIV-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben. Wenn der Sicherungspfad auch festgelegt ist, werden 4 Sicherungen erstellt.</translation>
+        <source>Specify custom backup path to add a copy of any automatic zSWI backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen automatischen zSWI-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben. Wenn der Sicherungspfad auch festgelegt ist, werden 4 Sicherungen erstellt.</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6113,8 +6113,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Synchronisiere Sporks....</translation>
     </message>
     <message>
-        <source>Syncing zPIV wallet...</source>
-        <translation>Synchronisiere zPIV Wallet... </translation>
+        <source>Syncing zSWI wallet...</source>
+        <translation>Synchronisiere zSWI Wallet... </translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -6261,8 +6261,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Benutzername für JSON-RPC-Verbindungen</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zPIV</source>
-        <translation>Der Betrag ist unterhalb des kleinsten Wertes (=1) an zPIV</translation>
+        <source>Value is below the smallest available denomination (= 1) of zSWI</source>
+        <translation>Der Betrag ist unterhalb des kleinsten Wertes (=1) an zSWI</translation>
     </message>
     <message>
         <source>Value more than Obfuscation pool maximum allows.</source>
@@ -6277,8 +6277,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Verifiziere Wallet...</translation>
     </message>
     <message>
-        <source>Version 1 zPIV require a security level of 100 to successfully spend.</source>
-        <translation>Version 1 zPIV benötigen eine Sicherheitsstufe von 100 um erfolgreich ausgegeben werden zu können.</translation>
+        <source>Version 1 zSWI require a security level of 100 to successfully spend.</source>
+        <translation>Version 1 zSWI benötigen eine Sicherheitsstufe von 100 um erfolgreich ausgegeben werden zu können.</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>

@@ -34,7 +34,7 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "validationinterface.h"
-#include "zpivchain.h"
+#include "zswichain.h"
 
 #include "primitives/zerocoin.h"
 #include "libzerocoin/Denominations.h"
@@ -83,7 +83,7 @@ bool fAlerts = DEFAULT_ALERTS;
 unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
 
-/** Fees smaller than this (in upiv) are considered zero fee (for relaying and mining)
+/** Fees smaller than this (in uswi) are considered zero fee (for relaying and mining)
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
  * so it's still 10 times lower comparing to bitcoin.
  */
@@ -899,16 +899,16 @@ bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin,
 
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend, CBlockIndex* pindex, const uint256& hashBlock)
 {
-    //Check to see if the zPIV is properly signed
+    //Check to see if the zSWI is properly signed
     if (pindex->nHeight >= Params().Zerocoin_Block_V2_Start()) {
         if (!spend.HasValidSignature())
-            return error("%s: V2 zPIV spend does not have a valid signature", __func__);
+            return error("%s: V2 zSWI spend does not have a valid signature", __func__);
 
         libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
         if (tx.IsCoinStake())
             expectedType = libzerocoin::SpendType::STAKE;
         if (spend.getSpendType() != expectedType) {
-            return error("%s: trying to spend zPIV without the correct spend type. txid=%s", __func__,
+            return error("%s: trying to spend zSWI without the correct spend type. txid=%s", __func__,
                          tx.GetHash().GetHex());
         }
     }
@@ -916,14 +916,14 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
     //Reject serial's that are already in the blockchain
     int nHeightTx = 0;
     if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx))
-        return error("%s : zPIV spend with serial %s is already in block %d\n", __func__,
+        return error("%s : zSWI spend with serial %s is already in block %d\n", __func__,
                      spend.getCoinSerialNumber().GetHex(), nHeightTx);
 
     //Reject serial's that are not in the acceptable value range
     bool fUseV1Params = spend.getVersion() < libzerocoin::PrivateCoin::PUBKEY_VERSION;
     if (pindex->nHeight > Params().Zerocoin_Block_EnforceSerialRange() &&
         !spend.HasValidSerial(Params().Zerocoin_Params(fUseV1Params)))
-        return error("%s : zPIV spend with serial %s from tx %s is not in valid range\n", __func__,
+        return error("%s : zSWI spend with serial %s from tx %s is not in valid range\n", __func__,
                      spend.getCoinSerialNumber().GetHex(), tx.GetHash().GetHex());
 
     return true;
@@ -1231,7 +1231,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             //Check that txid is not already in the chain
             int nHeightTx = 0;
             if (IsTransactionInChain(tx.GetHash(), nHeightTx))
-                return state.Invalid(error("AcceptToMemoryPool : zPIV spend tx %s already in block %d",
+                return state.Invalid(error("AcceptToMemoryPool : zSWI spend tx %s already in block %d",
                                            tx.GetHash().GetHex(), nHeightTx), REJECT_DUPLICATE, "bad-txns-inputs-spent");
 
             //Check for double spending of serial #'s
@@ -1241,7 +1241,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 CoinSpend spend = TxInToZerocoinSpend(txIn);
                 if (!ContextualCheckZerocoinSpend(tx, spend, chainActive.Tip(), 0))
                     return state.Invalid(error("%s: ContextualCheckZerocoinSpend failed for tx %s", __func__,
-                                               tx.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zpiv");
+                                               tx.GetHash().GetHex()), REJECT_INVALID, "bad-txns-invalid-zswi");
             }
         } else {
             LOCK(pool.cs);
@@ -1269,7 +1269,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 }
             }
 
-            // Check that zPIV mints are not already known
+            // Check that zSWI mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -1762,276 +1762,96 @@ int64_t GetBlockValue(int nHeight)
     }
 
     int64_t nSubsidy = 0;
+	
+	/*
+	Mainnet block reward distribution
+	block 0 to block 259200          - reward : 250
+	block 259200 to block 518400     - reward : 200
+	block 518400 to block 777600     - reward : 150
+	block 777600 to block 1036800    - reward : 125
+	block 1036800 to block 1296000   - reward : 110
+	block 1296000 to block 1814400   - reward : 105
+	block 1814400 to block 2332800   - reward : 100
+	block 2332800 to block 2851200   - reward : 95
+	block 2851200 to block 3369600   - reward : 90
+	block 3369600 to block 3888000   - reward : 85
+	block 3888000 to block 4406400   - reward : 80
+	block 4406400 to block 4924800   - reward : 75
+	block 4924800 to block 5443200   - reward : 70
+	block 5443200 to block 5961600   - reward : 65
+	block 5961600 to block 6480000   - reward : 60
+	block 6480000 to block 6998400   - reward : 55
+	block 6998400 to block 7516800   - reward : 50
+	block 7516800 to block 8035200   - reward : 45
+	block 8035200 to block 8553600   - reward : 40
+	block 8553600 to block 9072000   - reward : 35
+	block 9072000 to block 9590400   - reward : 30
+	block 9590400 to block 10108800  - reward : 25
+	block 10108800 to block 10627200 - reward : 20
+	block 10627200 to block 11145600 - reward : 15
+	block 11145600 to block 11664000 - reward : 10
+	block 11664000 to block 12182400 - reward : 5
+	After 							 - reward : 0
+    */
     if (nHeight == 0) {
-        nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
-        nSubsidy = 250 * COIN;
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
-    } else if (nHeight < Params().Zerocoin_Block_V2_Start()) {
-        nSubsidy = 4.5 * COIN;
-    } else {
-        nSubsidy = 5 * COIN;
-    }
+        nSubsidy = 200000000 * COIN; // Mainnet premine : 200,000,000 SWI
+	} else if (nHeight < 259200 && nHeight > 0) {                
+		nSubsidy = 250 * COIN;
+	} else if (nHeight < 518400 && nHeight >= 259200) {                
+		nSubsidy = 200 * COIN;
+	} else if (nHeight < 777600 && nHeight >= 518400) {                
+		nSubsidy = 150 * COIN;
+	} else if (nHeight < 1036800 && nHeight >= 777600) {                
+		nSubsidy = 125 * COIN;
+	} else if (nHeight < 1296000 && nHeight >= 1036800) {                
+		nSubsidy = 110 * COIN;
+	} else if (nHeight < 1814400 && nHeight >= 1296000) {                
+		nSubsidy = 105 * COIN;
+	} else if (nHeight < 2332800 && nHeight >= 1814400) {                
+		nSubsidy = 100 * COIN;
+	} else if (nHeight < 2851200 && nHeight >= 2332800) {                
+		nSubsidy = 95 * COIN;
+	} else if (nHeight < 3369600 && nHeight >= 2851200) {                
+		nSubsidy = 90 * COIN;
+	} else if (nHeight < 3888000 && nHeight >= 3369600) {                
+		nSubsidy = 85 * COIN;
+	} else if (nHeight < 4406400 && nHeight >= 3888000) {                
+		nSubsidy = 80 * COIN;
+	} else if (nHeight < 4924800 && nHeight >= 4406400) {                
+		nSubsidy = 75 * COIN;
+	} else if (nHeight < 5443200 && nHeight >= 4924800) {                
+		nSubsidy = 70 * COIN;
+	} else if (nHeight < 5961600 && nHeight >= 5443200) {                
+		nSubsidy = 65 * COIN;
+	} else if (nHeight < 6480000 && nHeight >= 5961600) {                
+		nSubsidy = 60 * COIN;
+	} else if (nHeight < 6998400 && nHeight >= 6480000) {                
+		nSubsidy = 55 * COIN;
+	} else if (nHeight < 7516800 && nHeight >= 6998400) {                
+		nSubsidy = 50 * COIN;
+	} else if (nHeight < 8035200 && nHeight >= 7516800) {                
+		nSubsidy = 45 * COIN;
+	} else if (nHeight < 8553600 && nHeight >= 8035200) {                
+		nSubsidy = 40 * COIN;
+	} else if (nHeight < 9072000 && nHeight >= 8553600) {                
+		nSubsidy = 35 * COIN;
+	} else if (nHeight < 9590400 && nHeight >= 9072000) {                
+		nSubsidy = 30 * COIN;
+	} else if (nHeight < 10108800 && nHeight >= 9590400) {                
+		nSubsidy = 25 * COIN;
+	} else if (nHeight < 10627200 && nHeight >= 10108800) {                
+		nSubsidy = 20 * COIN;
+	} else if (nHeight < 11145600 && nHeight >= 10627200) {                
+		nSubsidy = 15 * COIN;
+	} else if (nHeight < 11664000 && nHeight >= 11145600) {                
+		nSubsidy = 10 * COIN;
+	} else if (nHeight < 12182400 && nHeight >= 11664000) {                
+		nSubsidy = 5 * COIN;
+	}
     return nSubsidy;
 }
 
-CAmount GetSeeSaw(const CAmount& blockValue, int nMasternodeCount, int nHeight)
-{
-    //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-    if (nMasternodeCount < 1){
-        if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-            nMasternodeCount = mnodeman.stable_size();
-        else
-            nMasternodeCount = mnodeman.size();
-    }
-
-    int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-    int64_t mNodeCoins = nMasternodeCount * 10000 * COIN;
-
-    // Use this log to compare the masternode count for different clients
-    //LogPrintf("Adjusting seesaw at height %d with %d masternodes (without drift: %d) at %ld\n", nHeight, nMasternodeCount, nMasternodeCount - Params().MasternodeCountDrift(), GetTime());
-
-    if (fDebug)
-        LogPrintf("GetMasternodePayment(): moneysupply=%s, nodecoins=%s \n", FormatMoney(nMoneySupply).c_str(),
-                  FormatMoney(mNodeCoins).c_str());
-
-    CAmount ret = 0;
-    if (mNodeCoins == 0) {
-        ret = 0;
-    } else if (nHeight <= 325000) {
-        if (mNodeCoins <= (nMoneySupply * .05) && mNodeCoins > 0) {
-            ret = blockValue * .85;
-        } else if (mNodeCoins <= (nMoneySupply * .1) && mNodeCoins > (nMoneySupply * .05)) {
-            ret = blockValue * .8;
-        } else if (mNodeCoins <= (nMoneySupply * .15) && mNodeCoins > (nMoneySupply * .1)) {
-            ret = blockValue * .75;
-        } else if (mNodeCoins <= (nMoneySupply * .2) && mNodeCoins > (nMoneySupply * .15)) {
-            ret = blockValue * .7;
-        } else if (mNodeCoins <= (nMoneySupply * .25) && mNodeCoins > (nMoneySupply * .2)) {
-            ret = blockValue * .65;
-        } else if (mNodeCoins <= (nMoneySupply * .3) && mNodeCoins > (nMoneySupply * .25)) {
-            ret = blockValue * .6;
-        } else if (mNodeCoins <= (nMoneySupply * .35) && mNodeCoins > (nMoneySupply * .3)) {
-            ret = blockValue * .55;
-        } else if (mNodeCoins <= (nMoneySupply * .4) && mNodeCoins > (nMoneySupply * .35)) {
-            ret = blockValue * .5;
-        } else if (mNodeCoins <= (nMoneySupply * .45) && mNodeCoins > (nMoneySupply * .4)) {
-            ret = blockValue * .45;
-        } else if (mNodeCoins <= (nMoneySupply * .5) && mNodeCoins > (nMoneySupply * .45)) {
-            ret = blockValue * .4;
-        } else if (mNodeCoins <= (nMoneySupply * .55) && mNodeCoins > (nMoneySupply * .5)) {
-            ret = blockValue * .35;
-        } else if (mNodeCoins <= (nMoneySupply * .6) && mNodeCoins > (nMoneySupply * .55)) {
-            ret = blockValue * .3;
-        } else if (mNodeCoins <= (nMoneySupply * .65) && mNodeCoins > (nMoneySupply * .6)) {
-            ret = blockValue * .25;
-        } else if (mNodeCoins <= (nMoneySupply * .7) && mNodeCoins > (nMoneySupply * .65)) {
-            ret = blockValue * .2;
-        } else if (mNodeCoins <= (nMoneySupply * .75) && mNodeCoins > (nMoneySupply * .7)) {
-            ret = blockValue * .15;
-        } else {
-            ret = blockValue * .1;
-        }
-    } else if (nHeight > 325000) {
-        if (mNodeCoins <= (nMoneySupply * .01) && mNodeCoins > 0) {
-            ret = blockValue * .90;
-        } else if (mNodeCoins <= (nMoneySupply * .02) && mNodeCoins > (nMoneySupply * .01)) {
-            ret = blockValue * .88;
-        } else if (mNodeCoins <= (nMoneySupply * .03) && mNodeCoins > (nMoneySupply * .02)) {
-            ret = blockValue * .87;
-        } else if (mNodeCoins <= (nMoneySupply * .04) && mNodeCoins > (nMoneySupply * .03)) {
-            ret = blockValue * .86;
-        } else if (mNodeCoins <= (nMoneySupply * .05) && mNodeCoins > (nMoneySupply * .04)) {
-            ret = blockValue * .85;
-        } else if (mNodeCoins <= (nMoneySupply * .06) && mNodeCoins > (nMoneySupply * .05)) {
-            ret = blockValue * .84;
-        } else if (mNodeCoins <= (nMoneySupply * .07) && mNodeCoins > (nMoneySupply * .06)) {
-            ret = blockValue * .83;
-        } else if (mNodeCoins <= (nMoneySupply * .08) && mNodeCoins > (nMoneySupply * .07)) {
-            ret = blockValue * .82;
-        } else if (mNodeCoins <= (nMoneySupply * .09) && mNodeCoins > (nMoneySupply * .08)) {
-            ret = blockValue * .81;
-        } else if (mNodeCoins <= (nMoneySupply * .10) && mNodeCoins > (nMoneySupply * .09)) {
-            ret = blockValue * .80;
-        } else if (mNodeCoins <= (nMoneySupply * .11) && mNodeCoins > (nMoneySupply * .10)) {
-            ret = blockValue * .79;
-        } else if (mNodeCoins <= (nMoneySupply * .12) && mNodeCoins > (nMoneySupply * .11)) {
-            ret = blockValue * .78;
-        } else if (mNodeCoins <= (nMoneySupply * .13) && mNodeCoins > (nMoneySupply * .12)) {
-            ret = blockValue * .77;
-        } else if (mNodeCoins <= (nMoneySupply * .14) && mNodeCoins > (nMoneySupply * .13)) {
-            ret = blockValue * .76;
-        } else if (mNodeCoins <= (nMoneySupply * .15) && mNodeCoins > (nMoneySupply * .14)) {
-            ret = blockValue * .75;
-        } else if (mNodeCoins <= (nMoneySupply * .16) && mNodeCoins > (nMoneySupply * .15)) {
-            ret = blockValue * .74;
-        } else if (mNodeCoins <= (nMoneySupply * .17) && mNodeCoins > (nMoneySupply * .16)) {
-            ret = blockValue * .73;
-        } else if (mNodeCoins <= (nMoneySupply * .18) && mNodeCoins > (nMoneySupply * .17)) {
-            ret = blockValue * .72;
-        } else if (mNodeCoins <= (nMoneySupply * .19) && mNodeCoins > (nMoneySupply * .18)) {
-            ret = blockValue * .71;
-        } else if (mNodeCoins <= (nMoneySupply * .20) && mNodeCoins > (nMoneySupply * .19)) {
-            ret = blockValue * .70;
-        } else if (mNodeCoins <= (nMoneySupply * .21) && mNodeCoins > (nMoneySupply * .20)) {
-            ret = blockValue * .69;
-        } else if (mNodeCoins <= (nMoneySupply * .22) && mNodeCoins > (nMoneySupply * .21)) {
-            ret = blockValue * .68;
-        } else if (mNodeCoins <= (nMoneySupply * .23) && mNodeCoins > (nMoneySupply * .22)) {
-            ret = blockValue * .67;
-        } else if (mNodeCoins <= (nMoneySupply * .24) && mNodeCoins > (nMoneySupply * .23)) {
-            ret = blockValue * .66;
-        } else if (mNodeCoins <= (nMoneySupply * .25) && mNodeCoins > (nMoneySupply * .24)) {
-            ret = blockValue * .65;
-        } else if (mNodeCoins <= (nMoneySupply * .26) && mNodeCoins > (nMoneySupply * .25)) {
-            ret = blockValue * .64;
-        } else if (mNodeCoins <= (nMoneySupply * .27) && mNodeCoins > (nMoneySupply * .26)) {
-            ret = blockValue * .63;
-        } else if (mNodeCoins <= (nMoneySupply * .28) && mNodeCoins > (nMoneySupply * .27)) {
-            ret = blockValue * .62;
-        } else if (mNodeCoins <= (nMoneySupply * .29) && mNodeCoins > (nMoneySupply * .28)) {
-            ret = blockValue * .61;
-        } else if (mNodeCoins <= (nMoneySupply * .30) && mNodeCoins > (nMoneySupply * .29)) {
-            ret = blockValue * .60;
-        } else if (mNodeCoins <= (nMoneySupply * .31) && mNodeCoins > (nMoneySupply * .30)) {
-            ret = blockValue * .59;
-        } else if (mNodeCoins <= (nMoneySupply * .32) && mNodeCoins > (nMoneySupply * .31)) {
-            ret = blockValue * .58;
-        } else if (mNodeCoins <= (nMoneySupply * .33) && mNodeCoins > (nMoneySupply * .32)) {
-            ret = blockValue * .57;
-        } else if (mNodeCoins <= (nMoneySupply * .34) && mNodeCoins > (nMoneySupply * .33)) {
-            ret = blockValue * .56;
-        } else if (mNodeCoins <= (nMoneySupply * .35) && mNodeCoins > (nMoneySupply * .34)) {
-            ret = blockValue * .55;
-        } else if (mNodeCoins <= (nMoneySupply * .363) && mNodeCoins > (nMoneySupply * .35)) {
-            ret = blockValue * .54;
-        } else if (mNodeCoins <= (nMoneySupply * .376) && mNodeCoins > (nMoneySupply * .363)) {
-            ret = blockValue * .53;
-        } else if (mNodeCoins <= (nMoneySupply * .389) && mNodeCoins > (nMoneySupply * .376)) {
-            ret = blockValue * .52;
-        } else if (mNodeCoins <= (nMoneySupply * .402) && mNodeCoins > (nMoneySupply * .389)) {
-            ret = blockValue * .51;
-        } else if (mNodeCoins <= (nMoneySupply * .415) && mNodeCoins > (nMoneySupply * .402)) {
-            ret = blockValue * .50;
-        } else if (mNodeCoins <= (nMoneySupply * .428) && mNodeCoins > (nMoneySupply * .415)) {
-            ret = blockValue * .49;
-        } else if (mNodeCoins <= (nMoneySupply * .441) && mNodeCoins > (nMoneySupply * .428)) {
-            ret = blockValue * .48;
-        } else if (mNodeCoins <= (nMoneySupply * .454) && mNodeCoins > (nMoneySupply * .441)) {
-            ret = blockValue * .47;
-        } else if (mNodeCoins <= (nMoneySupply * .467) && mNodeCoins > (nMoneySupply * .454)) {
-            ret = blockValue * .46;
-        } else if (mNodeCoins <= (nMoneySupply * .48) && mNodeCoins > (nMoneySupply * .467)) {
-            ret = blockValue * .45;
-        } else if (mNodeCoins <= (nMoneySupply * .493) && mNodeCoins > (nMoneySupply * .48)) {
-            ret = blockValue * .44;
-        } else if (mNodeCoins <= (nMoneySupply * .506) && mNodeCoins > (nMoneySupply * .493)) {
-            ret = blockValue * .43;
-        } else if (mNodeCoins <= (nMoneySupply * .519) && mNodeCoins > (nMoneySupply * .506)) {
-            ret = blockValue * .42;
-        } else if (mNodeCoins <= (nMoneySupply * .532) && mNodeCoins > (nMoneySupply * .519)) {
-            ret = blockValue * .41;
-        } else if (mNodeCoins <= (nMoneySupply * .545) && mNodeCoins > (nMoneySupply * .532)) {
-            ret = blockValue * .40;
-        } else if (mNodeCoins <= (nMoneySupply * .558) && mNodeCoins > (nMoneySupply * .545)) {
-            ret = blockValue * .39;
-        } else if (mNodeCoins <= (nMoneySupply * .571) && mNodeCoins > (nMoneySupply * .558)) {
-            ret = blockValue * .38;
-        } else if (mNodeCoins <= (nMoneySupply * .584) && mNodeCoins > (nMoneySupply * .571)) {
-            ret = blockValue * .37;
-        } else if (mNodeCoins <= (nMoneySupply * .597) && mNodeCoins > (nMoneySupply * .584)) {
-            ret = blockValue * .36;
-        } else if (mNodeCoins <= (nMoneySupply * .61) && mNodeCoins > (nMoneySupply * .597)) {
-            ret = blockValue * .35;
-        } else if (mNodeCoins <= (nMoneySupply * .623) && mNodeCoins > (nMoneySupply * .61)) {
-            ret = blockValue * .34;
-        } else if (mNodeCoins <= (nMoneySupply * .636) && mNodeCoins > (nMoneySupply * .623)) {
-            ret = blockValue * .33;
-        } else if (mNodeCoins <= (nMoneySupply * .649) && mNodeCoins > (nMoneySupply * .636)) {
-            ret = blockValue * .32;
-        } else if (mNodeCoins <= (nMoneySupply * .662) && mNodeCoins > (nMoneySupply * .649)) {
-            ret = blockValue * .31;
-        } else if (mNodeCoins <= (nMoneySupply * .675) && mNodeCoins > (nMoneySupply * .662)) {
-            ret = blockValue * .30;
-        } else if (mNodeCoins <= (nMoneySupply * .688) && mNodeCoins > (nMoneySupply * .675)) {
-            ret = blockValue * .29;
-        } else if (mNodeCoins <= (nMoneySupply * .701) && mNodeCoins > (nMoneySupply * .688)) {
-            ret = blockValue * .28;
-        } else if (mNodeCoins <= (nMoneySupply * .714) && mNodeCoins > (nMoneySupply * .701)) {
-            ret = blockValue * .27;
-        } else if (mNodeCoins <= (nMoneySupply * .727) && mNodeCoins > (nMoneySupply * .714)) {
-            ret = blockValue * .26;
-        } else if (mNodeCoins <= (nMoneySupply * .74) && mNodeCoins > (nMoneySupply * .727)) {
-            ret = blockValue * .25;
-        } else if (mNodeCoins <= (nMoneySupply * .753) && mNodeCoins > (nMoneySupply * .74)) {
-            ret = blockValue * .24;
-        } else if (mNodeCoins <= (nMoneySupply * .766) && mNodeCoins > (nMoneySupply * .753)) {
-            ret = blockValue * .23;
-        } else if (mNodeCoins <= (nMoneySupply * .779) && mNodeCoins > (nMoneySupply * .766)) {
-            ret = blockValue * .22;
-        } else if (mNodeCoins <= (nMoneySupply * .792) && mNodeCoins > (nMoneySupply * .779)) {
-            ret = blockValue * .21;
-        } else if (mNodeCoins <= (nMoneySupply * .805) && mNodeCoins > (nMoneySupply * .792)) {
-            ret = blockValue * .20;
-        } else if (mNodeCoins <= (nMoneySupply * .818) && mNodeCoins > (nMoneySupply * .805)) {
-            ret = blockValue * .19;
-        } else if (mNodeCoins <= (nMoneySupply * .831) && mNodeCoins > (nMoneySupply * .818)) {
-            ret = blockValue * .18;
-        } else if (mNodeCoins <= (nMoneySupply * .844) && mNodeCoins > (nMoneySupply * .831)) {
-            ret = blockValue * .17;
-        } else if (mNodeCoins <= (nMoneySupply * .857) && mNodeCoins > (nMoneySupply * .844)) {
-            ret = blockValue * .16;
-        } else if (mNodeCoins <= (nMoneySupply * .87) && mNodeCoins > (nMoneySupply * .857)) {
-            ret = blockValue * .15;
-        } else if (mNodeCoins <= (nMoneySupply * .883) && mNodeCoins > (nMoneySupply * .87)) {
-            ret = blockValue * .14;
-        } else if (mNodeCoins <= (nMoneySupply * .896) && mNodeCoins > (nMoneySupply * .883)) {
-            ret = blockValue * .13;
-        } else if (mNodeCoins <= (nMoneySupply * .909) && mNodeCoins > (nMoneySupply * .896)) {
-            ret = blockValue * .12;
-        } else if (mNodeCoins <= (nMoneySupply * .922) && mNodeCoins > (nMoneySupply * .909)) {
-            ret = blockValue * .11;
-        } else if (mNodeCoins <= (nMoneySupply * .935) && mNodeCoins > (nMoneySupply * .922)) {
-            ret = blockValue * .10;
-        } else if (mNodeCoins <= (nMoneySupply * .945) && mNodeCoins > (nMoneySupply * .935)) {
-            ret = blockValue * .09;
-        } else if (mNodeCoins <= (nMoneySupply * .961) && mNodeCoins > (nMoneySupply * .945)) {
-            ret = blockValue * .08;
-        } else if (mNodeCoins <= (nMoneySupply * .974) && mNodeCoins > (nMoneySupply * .961)) {
-            ret = blockValue * .07;
-        } else if (mNodeCoins <= (nMoneySupply * .987) && mNodeCoins > (nMoneySupply * .974)) {
-            ret = blockValue * .06;
-        } else if (mNodeCoins <= (nMoneySupply * .99) && mNodeCoins > (nMoneySupply * .987)) {
-            ret = blockValue * .05;
-        } else {
-            ret = blockValue * .01;
-        }
-    }
-    return ret;
-}
-
-int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZPIVStake)
+int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZSWIStake)
 {
     int64_t ret = 0;
 
@@ -2039,24 +1859,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
         if (nHeight < 200)
             return 0;
     }
-
-    if (nHeight <= 43200) {
-        ret = blockValue / 5;
-    } else if (nHeight < 86400 && nHeight > 43200) {
-        ret = blockValue / (100 / 30);
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        ret = 50 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        ret = blockValue / 2;
-    } else if (nHeight < Params().Zerocoin_Block_V2_Start()) {
-        return GetSeeSaw(blockValue, nMasternodeCount, nHeight);
-    } else {
-        //When zPIV is staked, masternode only gets 2 PIV
-        ret = 3 * COIN;
-        if (isZPIVStake)
-            ret = 2 * COIN;
-    }
-
+    ret = blockValue / 2;
     return ret;
 }
 
@@ -2226,9 +2029,6 @@ bool CScriptCheck::operator()()
     }
     return true;
 }
-
-CBitcoinAddress addressExp1("DQZzqnSR6PXxagep1byLiRg9ZurCZ5KieQ");
-CBitcoinAddress addressExp2("DTQYdnNqKuEHXyNeeYhPQGGGdqHbXYwjpj");
 
 map<COutPoint, COutPoint> mapInvalidOutPoints;
 map<CBigNum, CAmount> mapInvalidSerials;
@@ -2573,7 +2373,7 @@ void ThreadScriptCheck()
     scriptcheckqueue.Thread();
 }
 
-void RecalculateZPIVMinted()
+void RecalculateZSWIMinted()
 {
     CBlockIndex *pindex = chainActive[Params().Zerocoin_StartHeight()];
     int nHeightEnd = chainActive.Height();
@@ -2600,14 +2400,14 @@ void RecalculateZPIVMinted()
     }
 }
 
-void RecalculateZPIVSpent()
+void RecalculateZSWISpent()
 {
     CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
     while (true) {
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
 
-        //Rewrite zPIV supply
+        //Rewrite zSWI supply
         CBlock block;
         assert(ReadBlockFromDisk(block, pindex));
 
@@ -2616,13 +2416,13 @@ void RecalculateZPIVSpent()
         //Reset the supply to previous block
         pindex->mapZerocoinSupply = pindex->pprev->mapZerocoinSupply;
 
-        //Add mints to zPIV supply
+        //Add mints to zSWI supply
         for (auto denom : libzerocoin::zerocoinDenomList) {
             long nDenomAdded = count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), denom);
             pindex->mapZerocoinSupply.at(denom) += nDenomAdded;
         }
 
-        //Remove spends from zPIV supply
+        //Remove spends from zSWI supply
         for (auto denom : listDenomsSpent)
             pindex->mapZerocoinSupply.at(denom)--;
 
@@ -2636,7 +2436,7 @@ void RecalculateZPIVSpent()
     }
 }
 
-bool RecalculatePIVSupply(int nHeightStart)
+bool RecalculateSWISupply(int nHeightStart)
 {
     if (nHeightStart > chainActive.Height())
         return false;
@@ -2756,7 +2556,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
     return true;
 }
 
-bool UpdateZPIVSupply(const CBlock& block, CBlockIndex* pindex)
+bool UpdateZSWISupply(const CBlock& block, CBlockIndex* pindex)
 {
     std::list<CZerocoinMint> listMints;
     bool fFilterInvalid = pindex->nHeight >= Params().Zerocoin_Block_RecalculateAccumulators();
@@ -2935,7 +2735,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                     return state.DoS(100, error("%s: failed to add block %s with invalid zerocoinspend", __func__, tx.GetHash().GetHex()), REJECT_INVALID);
             }
 
-            // Check that zPIV mints are not already known
+            // Check that zSWI mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -2964,7 +2764,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 }
             }
 
-            // Check that zPIV mints are not already known
+            // Check that zSWI mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -3012,14 +2812,14 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     //A one-time event where money supply counts were off and recalculated on a certain block.
     if (pindex->nHeight == Params().Zerocoin_Block_RecalculateAccumulators() + 1) {
-        RecalculateZPIVMinted();
-        RecalculateZPIVSpent();
-        RecalculatePIVSupply(Params().Zerocoin_StartHeight());
+        RecalculateZSWIMinted();
+        RecalculateZSWISpent();
+        RecalculateSWISupply(Params().Zerocoin_StartHeight());
     }
 
-    //Track zPIV money supply in the block index
-    if (!UpdateZPIVSupply(block, pindex))
-        return state.DoS(100, error("%s: Failed to calculate new zPIV supply for block=%s height=%d", __func__,
+    //Track zSWI money supply in the block index
+    if (!UpdateZSWISupply(block, pindex))
+        return state.DoS(100, error("%s: Failed to calculate new zSWI supply for block=%s height=%d", __func__,
                                     block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info
@@ -3027,7 +2827,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     pindex->nMoneySupply = nMoneySupplyPrev + nValueOut - nValueIn;
     pindex->nMint = pindex->nMoneySupply - nMoneySupplyPrev + nFees;
 
-//    LogPrintf("XX69----------> ConnectBlock(): nValueOut: %s, nValueIn: %s, nFees: %s, nMint: %s zPivSpent: %s\n",
+//    LogPrintf("XX69----------> ConnectBlock(): nValueOut: %s, nValueIn: %s, nFees: %s, nMint: %s zSwiSpent: %s\n",
 //              FormatMoney(nValueOut), FormatMoney(nValueIn),
 //              FormatMoney(nFees), FormatMoney(pindex->nMint), FormatMoney(nAmountZerocoinSpent));
 
@@ -3081,7 +2881,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         setDirtyBlockIndex.insert(pindex);
     }
 
-    //Record zPIV serials
+    //Record zSWI serials
     set<uint256> setAddedTx;
     for (pair<CoinSpend, uint256> pSpend : vSpends) {
         // Send signal to wallet if this is ours
@@ -3222,7 +3022,7 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    // If turned on AutoZeromint will automatically convert PIV to zPIV
+    // If turned on AutoZeromint will automatically convert SWI to zSWI
     if (pwalletMain->isZeromintEnabled ())
         pwalletMain->AutoZeromint ();
 
@@ -4088,13 +3888,13 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_Block_EnforceSerialRange(), state))
             return error("CheckBlock() : CheckTransaction failed");
 
-        // double check that there are no double spent zPIV spends in this block
+        // double check that there are no double spent zSWI spends in this block
         if (tx.IsZerocoinSpend()) {
             for (const CTxIn& txIn : tx.vin) {
                 if (txIn.scriptSig.IsZerocoinSpend()) {
                     libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txIn);
                     if (count(vBlockSerials.begin(), vBlockSerials.end(), spend.getCoinSerialNumber()))
-                        return state.DoS(100, error("%s : Double spending of zPIV serial %s in block\n Block: %s",
+                        return state.DoS(100, error("%s : Double spending of zSWI serial %s in block\n Block: %s",
                                                     __func__, spend.getCoinSerialNumber().GetHex(), block.ToString()));
                     vBlockSerials.emplace_back(spend.getCoinSerialNumber());
                 }
@@ -4301,21 +4101,21 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
 bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
     if (nHeight < Params().Zerocoin_Block_V2_Start())
-        return error("%s: zPIV stake block is less than allowed start height", __func__);
+        return error("%s: zSWI stake block is less than allowed start height", __func__);
 
-    if (CZPivStake* zPIV = dynamic_cast<CZPivStake*>(stake)) {
-        CBlockIndex* pindexFrom = zPIV->GetIndexFrom();
+    if (CZSwiStake* zSWI = dynamic_cast<CZSwiStake*>(stake)) {
+        CBlockIndex* pindexFrom = zSWI->GetIndexFrom();
         if (!pindexFrom)
-            return error("%s: failed to get index associated with zPIV stake checksum", __func__);
+            return error("%s: failed to get index associated with zSWI stake checksum", __func__);
 
         if (chainActive.Height() - pindexFrom->nHeight < Params().Zerocoin_RequiredStakeDepth())
-            return error("%s: zPIV stake does not have required confirmation depth", __func__);
+            return error("%s: zSWI stake does not have required confirmation depth", __func__);
 
         //The checksum needs to be the exact checksum from 200 blocks ago
         uint256 nCheckpoint200 = chainActive[nHeight - Params().Zerocoin_RequiredStakeDepth()]->nAccumulatorCheckpoint;
-        uint32_t nChecksum200 = ParseChecksum(nCheckpoint200, libzerocoin::AmountToZerocoinDenomination(zPIV->GetValue()));
-        if (nChecksum200 != zPIV->GetChecksum())
-            return error("%s: accumulator checksum is different than the block 200 blocks previous. stake=%d block200=%d", __func__, zPIV->GetChecksum(), nChecksum200);
+        uint32_t nChecksum200 = ParseChecksum(nCheckpoint200, libzerocoin::AmountToZerocoinDenomination(zSWI->GetValue()));
+        if (nChecksum200 != zSWI->GetChecksum())
+            return error("%s: accumulator checksum is different than the block 200 blocks previous. stake=%d block200=%d", __func__, zSWI->GetChecksum(), nChecksum200);
     } else {
         return error("%s: dynamic_cast of stake ptr failed", __func__);
     }
@@ -4365,8 +4165,8 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         if (!stake)
             return error("%s: null stake ptr", __func__);
 
-        if (stake->IsZPIV() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
-            return state.DoS(100, error("%s: staked zPIV fails context checks", __func__));
+        if (stake->IsZSWI() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
+            return state.DoS(100, error("%s: staked zSWI fails context checks", __func__));
 
         uint256 hash = block.GetHash();
         if(!mapProofOfStake.count(hash)) // add to mapProofOfStake
@@ -4494,7 +4294,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         }
     }
     if (nMints || nSpends)
-        LogPrintf("%s : block contains %d zPIV mints and %d zPIV spends\n", __func__, nMints, nSpends);
+        LogPrintf("%s : block contains %d zSWI mints and %d zSWI spends\n", __func__, nMints, nSpends);
 
     if (!CheckBlockSignature(*pblock))
         return error("ProcessNewBlock() : bad proof-of-stake block signature");

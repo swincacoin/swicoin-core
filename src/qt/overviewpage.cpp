@@ -36,7 +36,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::PIV)
+    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::SWI)
     {
     }
 
@@ -148,7 +148,7 @@ OverviewPage::~OverviewPage()
     delete ui;
 }
 
-void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sPIVPercentage, QString& szPIVPercentage)
+void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sSWIPercentage, QString& szSWIPercentage)
 {
     int nPrecision = 2;
     double dzPercentage = 0.0;
@@ -167,8 +167,8 @@ void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBala
 
     double dPercentage = 100.0 - dzPercentage;
 
-    szPIVPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
-    sPIVPercentage = "(" + QLocale(QLocale::system()).toString(dPercentage, 'f', nPrecision) + " %)";
+    szSWIPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
+    sSWIPercentage = "(" + QLocale(QLocale::system()).toString(dPercentage, 'f', nPrecision) + " %)";
 
 }
 
@@ -193,16 +193,16 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         nWatchOnlyLockedBalance = pwalletMain->GetLockedWatchOnlyBalance();
     }
 
-    // PIV Balance
+    // SWI Balance
     CAmount nTotalBalance = balance + unconfirmedBalance;
-    CAmount pivAvailableBalance = balance - immatureBalance - nLockedBalance;
+    CAmount swiAvailableBalance = balance - immatureBalance - nLockedBalance;
     CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
 
-    // PIV Watch-Only Balance
+    // SWI Watch-Only Balance
     CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance;
     CAmount nAvailableWatchBalance = watchOnlyBalance - watchImmatureBalance - nWatchOnlyLockedBalance;
 
-    // zPIV Balance
+    // zSWI Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
 
     // Percentages
@@ -210,11 +210,11 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     QString sPercentage = "";
     getPercentage(nUnlockedBalance, zerocoinBalance, sPercentage, szPercentage);
     // Combined balances
-    CAmount availableTotalBalance = pivAvailableBalance + matureZerocoinBalance;
+    CAmount availableTotalBalance = swiAvailableBalance + matureZerocoinBalance;
     CAmount sumTotalBalance = nTotalBalance + zerocoinBalance;
 
-    // PIV labels
-    ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, pivAvailableBalance, false, BitcoinUnits::separatorAlways));
+    // SWI labels
+    ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, swiAvailableBalance, false, BitcoinUnits::separatorAlways));
     ui->labelUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureBalance, false, BitcoinUnits::separatorAlways));
     ui->labelLockedBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nLockedBalance, false, BitcoinUnits::separatorAlways));
@@ -227,7 +227,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelWatchLocked->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nWatchOnlyLockedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelWatchTotal->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalWatchBalance, false, BitcoinUnits::separatorAlways));
 
-    // zPIV labels
+    // zSWI labels
     ui->labelzBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, zerocoinBalance, false, BitcoinUnits::separatorAlways));
     ui->labelzBalanceUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedZerocoinBalance, false, BitcoinUnits::separatorAlways));
     ui->labelzBalanceMature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, matureZerocoinBalance, false, BitcoinUnits::separatorAlways));
@@ -238,11 +238,11 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelTotalz->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, sumTotalBalance, false, BitcoinUnits::separatorAlways));
 
     // Percentage labels
-    ui->labelPIVPercent->setText(sPercentage);
-    ui->labelzPIVPercent->setText(szPercentage);
+    ui->labelSWIPercent->setText(sPercentage);
+    ui->labelzSWIPercent->setText(szPercentage);
 
     // Adjust bubble-help according to AutoMint settings
-    QString automintHelp = tr("Current percentage of zPIV.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
+    QString automintHelp = tr("Current percentage of zSWI.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
     bool fEnableZeromint = GetBoolArg("-enablezeromint", true);
     int nZeromintPercentage = GetArg("-zeromintpercentage", 10);
     if (fEnableZeromint) {
@@ -263,49 +263,49 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 
     bool showWatchOnly = nTotalWatchBalance != 0;
 
-    // PIV Available
-    bool showPIVAvailable = settingShowAllBalances || pivAvailableBalance != nTotalBalance;
-    bool showWatchOnlyPIVAvailable = showPIVAvailable || nAvailableWatchBalance != nTotalWatchBalance;
-    ui->labelBalanceText->setVisible(showPIVAvailable || showWatchOnlyPIVAvailable);
-    ui->labelBalance->setVisible(showPIVAvailable || showWatchOnlyPIVAvailable);
-    ui->labelWatchAvailable->setVisible(showWatchOnlyPIVAvailable && showWatchOnly);
+    // SWI Available
+    bool showSWIAvailable = settingShowAllBalances || swiAvailableBalance != nTotalBalance;
+    bool showWatchOnlySWIAvailable = showSWIAvailable || nAvailableWatchBalance != nTotalWatchBalance;
+    ui->labelBalanceText->setVisible(showSWIAvailable || showWatchOnlySWIAvailable);
+    ui->labelBalance->setVisible(showSWIAvailable || showWatchOnlySWIAvailable);
+    ui->labelWatchAvailable->setVisible(showWatchOnlySWIAvailable && showWatchOnly);
 
-    // PIV Pending
-    bool showPIVPending = settingShowAllBalances || unconfirmedBalance != 0;
-    bool showWatchOnlyPIVPending = showPIVPending || watchUnconfBalance != 0;
-    ui->labelPendingText->setVisible(showPIVPending || showWatchOnlyPIVPending);
-    ui->labelUnconfirmed->setVisible(showPIVPending || showWatchOnlyPIVPending);
-    ui->labelWatchPending->setVisible(showWatchOnlyPIVPending && showWatchOnly);
+    // SWI Pending
+    bool showSWIPending = settingShowAllBalances || unconfirmedBalance != 0;
+    bool showWatchOnlySWIPending = showSWIPending || watchUnconfBalance != 0;
+    ui->labelPendingText->setVisible(showSWIPending || showWatchOnlySWIPending);
+    ui->labelUnconfirmed->setVisible(showSWIPending || showWatchOnlySWIPending);
+    ui->labelWatchPending->setVisible(showWatchOnlySWIPending && showWatchOnly);
 
-    // PIV Immature
-    bool showPIVImmature = settingShowAllBalances || immatureBalance != 0;
-    bool showWatchOnlyImmature = showPIVImmature || watchImmatureBalance != 0;
-    ui->labelImmatureText->setVisible(showPIVImmature || showWatchOnlyImmature);
-    ui->labelImmature->setVisible(showPIVImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
+    // SWI Immature
+    bool showSWIImmature = settingShowAllBalances || immatureBalance != 0;
+    bool showWatchOnlyImmature = showSWIImmature || watchImmatureBalance != 0;
+    ui->labelImmatureText->setVisible(showSWIImmature || showWatchOnlyImmature);
+    ui->labelImmature->setVisible(showSWIImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
     ui->labelWatchImmature->setVisible(showWatchOnlyImmature && showWatchOnly); // show watch-only immature balance
 
-    // PIV Locked
-    bool showPIVLocked = settingShowAllBalances || nLockedBalance != 0;
-    bool showWatchOnlyPIVLocked = showPIVLocked || nWatchOnlyLockedBalance != 0;
-    ui->labelLockedBalanceText->setVisible(showPIVLocked || showWatchOnlyPIVLocked);
-    ui->labelLockedBalance->setVisible(showPIVLocked || showWatchOnlyPIVLocked);
-    ui->labelWatchLocked->setVisible(showWatchOnlyPIVLocked && showWatchOnly);
+    // SWI Locked
+    bool showSWILocked = settingShowAllBalances || nLockedBalance != 0;
+    bool showWatchOnlySWILocked = showSWILocked || nWatchOnlyLockedBalance != 0;
+    ui->labelLockedBalanceText->setVisible(showSWILocked || showWatchOnlySWILocked);
+    ui->labelLockedBalance->setVisible(showSWILocked || showWatchOnlySWILocked);
+    ui->labelWatchLocked->setVisible(showWatchOnlySWILocked && showWatchOnly);
 
-    // zPIV
-    bool showzPIVAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
-    bool showzPIVUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
-    bool showzPIVImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
-    ui->labelzBalanceMature->setVisible(showzPIVAvailable);
-    ui->labelzBalanceMatureText->setVisible(showzPIVAvailable);
-    ui->labelzBalanceUnconfirmed->setVisible(showzPIVUnconfirmed);
-    ui->labelzBalanceUnconfirmedText->setVisible(showzPIVUnconfirmed);
-    ui->labelzBalanceImmature->setVisible(showzPIVImmature);
-    ui->labelzBalanceImmatureText->setVisible(showzPIVImmature);
+    // zSWI
+    bool showzSWIAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
+    bool showzSWIUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
+    bool showzSWIImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
+    ui->labelzBalanceMature->setVisible(showzSWIAvailable);
+    ui->labelzBalanceMatureText->setVisible(showzSWIAvailable);
+    ui->labelzBalanceUnconfirmed->setVisible(showzSWIUnconfirmed);
+    ui->labelzBalanceUnconfirmedText->setVisible(showzSWIUnconfirmed);
+    ui->labelzBalanceImmature->setVisible(showzSWIImmature);
+    ui->labelzBalanceImmatureText->setVisible(showzSWIImmature);
 
     // Percent split
     bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
-    ui->labelPIVPercent->setVisible(showPercentages);
-    ui->labelzPIVPercent->setVisible(showPercentages);
+    ui->labelSWIPercent->setVisible(showPercentages);
+    ui->labelzSWIPercent->setVisible(showPercentages);
 
     static int cachedTxLocks = 0;
 
@@ -377,7 +377,7 @@ void OverviewPage::setWalletModel(WalletModel* model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("PIV")
+    // update the display unit, to not use the default ("SWI")
     updateDisplayUnit();
 
     // Hide orphans

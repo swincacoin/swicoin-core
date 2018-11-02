@@ -321,7 +321,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>ZPivControlDialog</name>
+    <name>ZSwiControlDialog</name>
     </context>
 <context>
     <name>swi-core</name>

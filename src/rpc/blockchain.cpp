@@ -121,12 +121,12 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
 
     result.push_back(Pair("moneysupply",ValueFromAmount(blockindex->nMoneySupply)));
 
-    UniValue zpivObj(UniValue::VOBJ);
+    UniValue zswiObj(UniValue::VOBJ);
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        zpivObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
+        zswiObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
-    zpivObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-    result.push_back(Pair("zPIVsupply", zpivObj));
+    zswiObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
+    result.push_back(Pair("zSWIsupply", zswiObj));
 
     return result;
 }
@@ -327,17 +327,17 @@ UniValue getblock(const UniValue& params, bool fHelp)
             "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
             "  \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
             "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
-            "  \"zPIVsupply\" :\n"
+            "  \"zSWIsupply\" :\n"
             "  {\n"
-            "     \"1\" : n,            (numeric) supply of 1 zPIV denomination\n"
-            "     \"5\" : n,            (numeric) supply of 5 zPIV denomination\n"
-            "     \"10\" : n,           (numeric) supply of 10 zPIV denomination\n"
-            "     \"50\" : n,           (numeric) supply of 50 zPIV denomination\n"
-            "     \"100\" : n,          (numeric) supply of 100 zPIV denomination\n"
-            "     \"500\" : n,          (numeric) supply of 500 zPIV denomination\n"
-            "     \"1000\" : n,         (numeric) supply of 1000 zPIV denomination\n"
-            "     \"5000\" : n,         (numeric) supply of 5000 zPIV denomination\n"
-            "     \"total\" : n,        (numeric) The total supply of all zPIV denominations\n"
+            "     \"1\" : n,            (numeric) supply of 1 zSWI denomination\n"
+            "     \"5\" : n,            (numeric) supply of 5 zSWI denomination\n"
+            "     \"10\" : n,           (numeric) supply of 10 zSWI denomination\n"
+            "     \"50\" : n,           (numeric) supply of 50 zSWI denomination\n"
+            "     \"100\" : n,          (numeric) supply of 100 zSWI denomination\n"
+            "     \"500\" : n,          (numeric) supply of 500 zSWI denomination\n"
+            "     \"1000\" : n,         (numeric) supply of 1000 zSWI denomination\n"
+            "     \"5000\" : n,         (numeric) supply of 5000 zSWI denomination\n"
+            "     \"total\" : n,        (numeric) The total supply of all zSWI denominations\n"
             "  }\n"
             "}\n"
 
