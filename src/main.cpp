@@ -1765,7 +1765,8 @@ int64_t GetBlockValue(int nHeight)
 	
 	/*
 	Mainnet block reward distribution
-	block 0 to block 259200          - reward : 250
+	block 1 : Premine                - reward : 200,000,000
+	block 2 to block 259200          - reward : 250
 	block 259200 to block 518400     - reward : 200
 	block 518400 to block 777600     - reward : 150
 	block 777600 to block 1036800    - reward : 125
@@ -1794,8 +1795,10 @@ int64_t GetBlockValue(int nHeight)
 	After 							 - reward : 0
     */
     if (nHeight == 0) {
+        nSubsidy = 1 * COIN;
+	if (nHeight == 1) {
         nSubsidy = 200000000 * COIN; // Mainnet premine : 200,000,000 SWI
-	} else if (nHeight < 259200 && nHeight > 0) {                
+	} else if (nHeight < 259200 && nHeight > 1) {                
 		nSubsidy = 250 * COIN;
 	} else if (nHeight < 518400 && nHeight >= 259200) {                
 		nSubsidy = 200 * COIN;
