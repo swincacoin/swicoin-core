@@ -21,8 +21,9 @@ More information at [swinca.io](https://www.swinca.io)
 <tr><td>Premine</td><td>200,000,000 SWI**</td></tr>
 </table>
 
-*  See table below
-** 200,000,000 SWI Premine will be distributed in an ICO.
+*See table below
+
+**200,000,000 SWI Premine will be distributed in an ICO.
 
 ### Reward Distribution
 
@@ -43,7 +44,7 @@ More information at [swinca.io](https://www.swinca.io)
 ### PoS Rewards Breakdown
 
 <table>
-<th>Block Height</th><th>Time of the phase</th><th>Masternodes & Stakers Reward</th><th>Notes</th>
+<th>Block Height</th><th>Time of the phase</th><th>Masternodes & Stakers Reward</th>
 <tr><td>401-259200</td><td>6 months</td><td>250 SWI</td></tr>
 <tr><td>259201-518400</td><td>6 months</td><td>200 SWI</td></tr>
 <tr><td>518401-777600</td><td>6 months</td><td>150 SWI</td></tr>
