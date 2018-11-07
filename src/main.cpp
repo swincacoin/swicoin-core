@@ -1796,7 +1796,7 @@ int64_t GetBlockValue(int nHeight)
     */
     if (nHeight == 0) {
         nSubsidy = 1 * COIN;
-	if (nHeight == 1) {
+	} else if (nHeight == 1) {
         nSubsidy = 200000000 * COIN; // Mainnet premine : 200,000,000 SWI
 	} else if (nHeight < 259200 && nHeight > 1) {                
 		nSubsidy = 250 * COIN;
